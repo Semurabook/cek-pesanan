@@ -255,13 +255,6 @@ border:1px solid #F0E0E3;
 box-shadow:0 7px 18px rgba(111,91,95,.045)
 }
 
-.book-row{
-display:flex;
-justify-content:space-between;
-gap:12px;
-align-items:flex-start
-}
-
 .book-title{
 font-family:"Fredoka",sans-serif;
 font-size:.98rem;
@@ -270,18 +263,26 @@ line-height:1.35;
 color:#6F5B5F
 }
 
+.qty-price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+margin-top:6px
+}
+
+.item-meta{
+margin-top:0;
+font-size:.72rem;
+color:#9A8186
+}
+
 .book-price{
 text-align:right;
 font-size:.82rem;
 font-weight:700;
 color:#A66D78;
 white-space:nowrap
-}
-
-.item-meta{
-margin-top:5px;
-font-size:.72rem;
-color:#9A8186
 }
 
 .item-divider{
@@ -953,21 +954,18 @@ let currentWhatsappMessage = "";
 
 function showScreen(id){
 
-document
-.querySelectorAll(".screen")
-.forEach(function(screen){
+const screens =
+document.querySelectorAll(".screen");
 
+screens.forEach(function(screen){
 screen.classList.remove("active");
-
 });
 
 const target =
 document.getElementById(id);
 
 if(target){
-
 target.classList.add("active");
-
 }
 
 window.scrollTo({
@@ -1251,10 +1249,6 @@ div.className =
 
 div.innerHTML = `
 
-<div class="book-row">
-
-<div>
-
 <div class="book-title">
 
 📖 ${escapeHtml(
@@ -1263,11 +1257,11 @@ item.judulBuku || "-"
 
 </div>
 
+<div class="qty-price-row">
+
 <div class="item-meta">
 
 Qty: ${qty} × ${formatRupiah(harga)}
-
-</div>
 
 </div>
 
@@ -1454,7 +1448,7 @@ Number(angka || 0)
 
 }
 
-/* SALIN REKENING - TANPA POPUP */
+/* SALIN REKENING */
 
 function salinRekening(){
 
