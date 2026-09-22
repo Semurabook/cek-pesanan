@@ -176,7 +176,7 @@ transition:.2s
 .btn:hover{filter:brightness(1.03)}
 .btn:disabled{cursor:wait}
 
-/* WHATSAPP BUTTON */
+/* WHATSAPP */
 
 .whatsapp-btn{
 background:#25D366;
@@ -188,9 +188,7 @@ justify-content:center;
 gap:8px
 }
 
-.whatsapp-btn:hover{
-filter:brightness(1.04)
-}
+.whatsapp-btn:hover{filter:brightness(1.04)}
 
 .wa-icon{
 width:18px;
@@ -464,8 +462,6 @@ line-height:1.55;
 color:#A18388
 }
 
-/* TOTAL DI HALAMAN PAYMENT */
-
 .payment-total{
 margin:0 0 18px;
 padding:15px;
@@ -515,17 +511,20 @@ border-color:#CDE8D2;
 color:#2E7D32
 }
 
-.bca-logo{
-width:120px;
-max-width:45%;
-margin-bottom:14px
-}
+/* BCA */
 
 .bank-box{
 padding:17px;
 border-radius:17px;
 background:#FFF8F9;
 border:1px solid #EEDADD
+}
+
+.bca-logo{
+width:85px;
+max-width:40%;
+display:block;
+margin:0 auto 10px
 }
 
 .bank-label{
@@ -548,15 +547,19 @@ color:#8C777B
 }
 
 .copy-btn{
-margin-top:12px;
-width:100%;
-height:42px;
-border-radius:11px;
+margin:10px auto 0;
+display:block;
+width:auto;
+min-width:170px;
+height:36px;
+padding:0 16px;
+border-radius:10px;
 border:1px solid #E4C8CD;
 background:#fff;
 color:#A66D78;
-font-size:.76rem;
-font-weight:700
+font-size:.68rem;
+font-weight:700;
+white-space:nowrap
 }
 
 .copy-btn.copied{
@@ -644,8 +647,6 @@ to{transform:rotate(360deg)}
 <main class="page">
 <div class="stage">
 
-<!-- LOGO -->
-
 <div class="logo-wrap">
 <img
 class="logo"
@@ -653,14 +654,10 @@ src="https://drive.google.com/thumbnail?id=1WqeS39kJveRSuLSDBHDVlKtsAaLUiWVR&sz=
 alt="SEMURA">
 </div>
 
-<!-- BERANDA -->
-
 <section id="homeScreen" class="screen active">
 <div class="order-card">
 
-<h1 class="title">
-Cek Pesanan
-</h1>
+<h1 class="title">Cek Pesanan</h1>
 
 <p class="subtitle">
 Masukkan Kode Grup dan Nomor WhatsApp
@@ -668,60 +665,41 @@ untuk melihat pesananmu.
 </p>
 
 <div class="field">
-
-<label for="kodeGrup">
-Kode Grup
-</label>
+<label for="kodeGrup">Kode Grup</label>
 
 <input
 type="text"
 id="kodeGrup"
 placeholder="Contoh: G1/G2/G3"
 autocomplete="off">
-
 </div>
 
 <div class="field">
-
-<label for="nomorWhatsapp">
-Nomor WhatsApp
-</label>
+<label for="nomorWhatsapp">Nomor WhatsApp</label>
 
 <input
 type="tel"
 id="nomorWhatsapp"
 placeholder="Contoh: 081234567890"
 autocomplete="tel">
-
 </div>
 
 <button
 class="btn"
 id="cekButton"
 onclick="cekPesanan()">
-
 SUBMIT
-
 </button>
 
-<div
-class="loading"
-id="loading">
-
+<div class="loading" id="loading">
 <span class="spinner"></span>
 <span>Sedang mencari pesanan...</span>
-
 </div>
 
-<div
-class="error"
-id="error">
-</div>
+<div class="error" id="error"></div>
 
 </div>
 </section>
-
-<!-- HASIL -->
 
 <section id="resultScreen" class="screen">
 
@@ -729,13 +707,9 @@ id="error">
 
 <div class="result-header">
 
-<h2>
-Pesanan Ditemukan 💗
-</h2>
+<h2>Pesanan Ditemukan 💗</h2>
 
-<p id="customerName">
--
-</p>
+<p id="customerName">-</p>
 
 </div>
 
@@ -743,17 +717,11 @@ Pesanan Ditemukan 💗
 
 <div class="grand-total">
 
-<span>
-Total Pesanan
-</span>
+<span>Total Pesanan</span>
 
-<span id="grandTotal">
-Rp0
-</span>
+<span id="grandTotal">Rp0</span>
 
 </div>
-
-<!-- STATUS PEMBAYARAN UTAMA -->
 
 <div
 id="paymentStatus"
@@ -762,9 +730,7 @@ class="overall-payment unpaid">
 <div
 class="payment-status-icon"
 id="paymentIcon">
-
 ⏳
-
 </div>
 
 <div class="payment-status-content">
@@ -776,21 +742,16 @@ Status Pembayaran
 <div
 class="payment-done-text"
 id="paymentText">
-
 BELUM BAYAR
-
 </div>
 
 <div
 class="payment-status-description"
 id="paymentDescription">
-
 Silakan lakukan pembayaran untuk melanjutkan proses pesanan.
-
 </div>
 
 </div>
-
 </div>
 
 <div
@@ -823,16 +784,9 @@ onclick="showScreen('homeScreen')">
 
 </section>
 
-<!-- PEMBAYARAN -->
-
 <section id="paymentScreen" class="screen">
 
 <div class="result payment-card">
-
-<img
-class="bca-logo"
-src="https://drive.google.com/thumbnail?id=1hW1PAp4hcGlf75o0knAeGvQuCTKSy5Az&sz=w800"
-alt="BCA">
 
 <h2 class="payment-title">
 Instruksi Pembayaran
@@ -842,8 +796,6 @@ Instruksi Pembayaran
 Silakan transfer sesuai total pesanan
 ke rekening berikut.
 </p>
-
-<!-- TOTAL PEMBAYARAN -->
 
 <div class="payment-total">
 
@@ -872,6 +824,11 @@ aria-label="Salin total pembayaran">
 
 <div class="bank-box">
 
+<img
+class="bca-logo"
+src="https://drive.google.com/thumbnail?id=1hW1PAp4hcGlf75o0knAeGvQuCTKSy5Az&sz=w800"
+alt="BCA">
+
 <div class="bank-label">
 Nomor Rekening BCA
 </div>
@@ -879,9 +836,7 @@ Nomor Rekening BCA
 <div
 class="bank-number"
 id="rekeningBca">
-
 0154739978
-
 </div>
 
 <div class="bank-owner">
@@ -949,26 +904,16 @@ onclick="showScreen('resultScreen')">
 
 </section>
 
-<!-- BENEFITS -->
-
 <div class="benefits">
-
 <span>🌸 Mudah</span>
 <span>✨ Aman</span>
 <span>💖 Praktis</span>
-
 </div>
 
-<!-- FOOTER -->
-
 <div class="footer">
-
 © 2026 SEMURA · Since 2022
-
 <br>
-
 Baby & Mom
-
 </div>
 
 </div>
@@ -979,15 +924,10 @@ Baby & Mom
 const API_URL =
 "https://script.google.com/macros/s/AKfycbxJEGaU5d7lISyZEcQCwvR-n7mUQK6yZuehFtjgeCObl2Uq_KvDdv2WNIUo1ZoSeLqIjg/exec";
 
-const NO_REKENING_BCA =
-"0154739978";
-
-const NO_WA_ADMIN =
-"6282115465899";
+const NO_REKENING_BCA = "0154739978";
+const NO_WA_ADMIN = "6282115465899";
 
 let currentWhatsappMessage = "";
-
-/* SCREEN */
 
 function showScreen(id){
 
@@ -1012,8 +952,6 @@ behavior:"smooth"
 
 }
 
-/* NORMALISASI NOMOR */
-
 function normalisasiNomor(nomor){
 
 let value =
@@ -1032,8 +970,6 @@ value.substring(2);
 return value;
 
 }
-
-/* CEK PESANAN */
 
 function cekPesanan(){
 
@@ -1115,14 +1051,8 @@ button.style.opacity = "1";
 
 delete window[callbackName];
 
-if(
-script &&
-script.parentNode
-){
-
-script.parentNode
-.removeChild(script);
-
+if(script && script.parentNode){
+script.parentNode.removeChild(script);
 }
 
 }
@@ -1159,14 +1089,8 @@ error.classList.add("show");
 
 delete window[callbackName];
 
-if(
-script &&
-script.parentNode
-){
-
-script.parentNode
-.removeChild(script);
-
+if(script && script.parentNode){
+script.parentNode.removeChild(script);
 }
 
 };
@@ -1175,21 +1099,15 @@ document.body.appendChild(script);
 
 }
 
-/* PROSES HASIL */
-
 function prosesHasilPesanan(response){
 
 const error =
 document.getElementById("error");
 
-if(
-!response ||
-!response.success
-){
+if(!response || !response.success){
 
 error.textContent =
-response &&
-response.message
+response && response.message
 ? response.message
 : "Pesanan tidak ditemukan.";
 
@@ -1199,10 +1117,8 @@ return;
 
 }
 
-if(
-!Array.isArray(response.data) ||
-response.data.length === 0
-){
+if(!Array.isArray(response.data) ||
+response.data.length === 0){
 
 error.textContent =
 "Data pesanan tidak tersedia.";
@@ -1227,37 +1143,27 @@ document.getElementById("orderList");
 orderList.innerHTML = "";
 
 let adaYangBelumBayar = false;
-
 let totalDariCard = 0;
 
-response.data.forEach(
-function(item){
+response.data.forEach(function(item){
 
 const status =
-String(
-item.statusPembayaran || ""
-)
+String(item.statusPembayaran || "")
 .trim()
 .toLowerCase();
 
 const sudahBayar = [
-
 "done",
 "lunas",
 "selesai",
 "sudah bayar",
 "sudah dibayar",
 "done payment"
-
 ].includes(status);
 
 if(!sudahBayar){
-
 adaYangBelumBayar = true;
-
 }
-
-/* HITUNG QTY × HARGA */
 
 const qty =
 Number(
@@ -1276,8 +1182,6 @@ qty * harga;
 
 totalDariCard += subtotal;
 
-/* CARD BUKU */
-
 const div =
 document.createElement("div");
 
@@ -1287,25 +1191,17 @@ div.className =
 div.innerHTML = `
 
 <div class="book-title">
-
-📖 ${escapeHtml(
-item.judulBuku || "-"
-)}
-
+📖 ${escapeHtml(item.judulBuku || "-")}
 </div>
 
 <div class="qty-price-row">
 
 <div class="item-meta">
-
 Qty: ${qty} × ${formatRupiah(harga)}
-
 </div>
 
 <div class="book-price">
-
 ${formatRupiah(subtotal)}
-
 </div>
 
 </div>
@@ -1314,12 +1210,9 @@ ${formatRupiah(subtotal)}
 
 <div class="item-status-row">
 
-<span>
-Status Bayar
-</span>
+<span>Status Bayar</span>
 
-<span
-class="status-badge payment-badge ${
+<span class="status-badge payment-badge ${
 sudahBayar ? "done" : "unpaid"
 }">
 
@@ -1333,28 +1226,20 @@ ${sudahBayar
 
 <div class="item-status-row">
 
-<span>
-Pengiriman
-</span>
+<span>Pengiriman</span>
 
 <span class="status-badge shipping-badge">
 
-${escapeHtml(
-item.statusPengiriman || "-"
-)}
+${escapeHtml(item.statusPengiriman || "-")}
 
 </span>
 
 </div>
-
 `;
 
 orderList.appendChild(div);
 
-}
-);
-
-/* TOTAL */
+});
 
 let totalSemua =
 totalDariCard;
@@ -1362,9 +1247,7 @@ totalDariCard;
 if(!totalSemua){
 
 totalSemua =
-Number(
-response.totalSemua || 0
-);
+Number(response.totalSemua || 0);
 
 }
 
@@ -1373,45 +1256,30 @@ document
 .textContent =
 formatRupiah(totalSemua);
 
-/* TOTAL DI HALAMAN PAYMENT */
-
 document
 .getElementById("paymentTotal")
 .textContent =
 formatRupiah(totalSemua);
 
-/* STATUS PEMBAYARAN */
-
 const paymentStatus =
-document.getElementById(
-"paymentStatus"
-);
+document.getElementById("paymentStatus");
 
 const paymentIcon =
-document.getElementById(
-"paymentIcon"
-);
+document.getElementById("paymentIcon");
 
 const paymentText =
-document.getElementById(
-"paymentText"
-);
+document.getElementById("paymentText");
 
 const paymentDescription =
-document.getElementById(
-"paymentDescription"
-);
+document.getElementById("paymentDescription");
 
 if(adaYangBelumBayar){
 
 paymentStatus.className =
 "overall-payment unpaid";
 
-paymentIcon.textContent =
-"⏳";
-
-paymentText.textContent =
-"BELUM BAYAR";
+paymentIcon.textContent = "⏳";
+paymentText.textContent = "BELUM BAYAR";
 
 paymentDescription.textContent =
 "Silakan lakukan pembayaran untuk melanjutkan proses pesanan.";
@@ -1421,29 +1289,20 @@ paymentDescription.textContent =
 paymentStatus.className =
 "overall-payment done";
 
-paymentIcon.textContent =
-"✓";
-
-paymentText.textContent =
-"DONE PAYMENT";
+paymentIcon.textContent = "✓";
+paymentText.textContent = "DONE PAYMENT";
 
 paymentDescription.textContent =
 "Pembayaran sudah diterima. Terima kasih 🤍";
 
 }
 
-/* TOMBOL INSTRUKSI */
-
 document
-.getElementById(
-"instructionWrapper"
-)
+.getElementById("instructionWrapper")
 .style.display =
 adaYangBelumBayar
 ? "block"
 : "none";
-
-/* WHATSAPP */
 
 currentWhatsappMessage =
 
@@ -1469,13 +1328,9 @@ formatRupiah(totalSemua) +
 
 "Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
 
-showScreen(
-"resultScreen"
-);
+showScreen("resultScreen");
 
 }
-
-/* FORMAT RUPIAH */
 
 function formatRupiah(angka){
 
@@ -1484,8 +1339,6 @@ Number(angka || 0)
 .toLocaleString("id-ID");
 
 }
-
-/* SALIN REKENING */
 
 function salinRekening(){
 
@@ -1514,10 +1367,8 @@ btn.classList.remove("copied");
 
 };
 
-if(
-navigator.clipboard &&
-navigator.clipboard.writeText
-){
+if(navigator.clipboard &&
+navigator.clipboard.writeText){
 
 navigator.clipboard
 .writeText(NO_REKENING_BCA)
@@ -1542,8 +1393,6 @@ berhasil
 
 }
 
-/* SALIN TOTAL */
-
 function salinTotal(){
 
 const total =
@@ -1552,33 +1401,25 @@ document
 .textContent;
 
 const btn =
-document.querySelector(
-".copy-total-btn"
-);
+document.querySelector(".copy-total-btn");
 
 const berhasil =
 function(){
 
-btn.textContent =
-"✓";
-
+btn.textContent = "✓";
 btn.classList.add("copied");
 
 setTimeout(function(){
 
-btn.textContent =
-"📋";
-
+btn.textContent = "📋";
 btn.classList.remove("copied");
 
 },2000);
 
 };
 
-if(
-navigator.clipboard &&
-navigator.clipboard.writeText
-){
+if(navigator.clipboard &&
+navigator.clipboard.writeText){
 
 navigator.clipboard
 .writeText(total)
@@ -1603,25 +1444,14 @@ berhasil
 
 }
 
-/* FALLBACK COPY */
-
-function fallbackCopy(
-text,
-callback
-){
+function fallbackCopy(text,callback){
 
 const temp =
-document.createElement(
-"textarea"
-);
+document.createElement("textarea");
 
 temp.value = text;
-
-temp.style.position =
-"fixed";
-
-temp.style.opacity =
-"0";
+temp.style.position = "fixed";
+temp.style.opacity = "0";
 
 document.body.appendChild(temp);
 
@@ -1629,13 +1459,9 @@ temp.focus();
 temp.select();
 
 try{
-
 document.execCommand("copy");
-
 }catch(e){
-
 console.error(e);
-
 }
 
 document.body.removeChild(temp);
@@ -1643,8 +1469,6 @@ document.body.removeChild(temp);
 callback();
 
 }
-
-/* WHATSAPP */
 
 function konfirmasiWhatsApp(){
 
@@ -1665,12 +1489,9 @@ url,
 
 }
 
-/* ESCAPE HTML */
-
 function escapeHtml(value){
 
 return String(value || "")
-
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
