@@ -66,14 +66,9 @@
       cursor: pointer;
     }
 
-    /* =========================
-       PAGE
-    ========================= */
-
     .page {
       min-height: 100dvh;
       padding: 24px 16px;
-
       display: flex;
       justify-content: center;
     }
@@ -89,9 +84,7 @@
       animation: fadeInUp .7s ease both;
     }
 
-    /* =========================
-       ORNAMEN
-    ========================= */
+    /* ORNAMEN */
 
     .ornament {
       position: fixed;
@@ -124,9 +117,7 @@
       animation: floaty 5.5s ease-in-out infinite;
     }
 
-    /* =========================
-       LOGO
-    ========================= */
+    /* LOGO */
 
     .logo-wrap {
       text-align: center;
@@ -150,21 +141,9 @@
         );
     }
 
-    .tagline {
-      margin-top: 6px;
+    /* TAGLINE DI BAWAH LOGO DIHAPUS */
 
-      font-family: "Fredoka", sans-serif;
-
-      font-size: .82rem;
-
-      color: #9A777E;
-
-      letter-spacing: .2px;
-    }
-
-    /* =========================
-       SCREEN
-    ========================= */
+    /* SCREEN */
 
     .screen {
       display: none;
@@ -175,13 +154,10 @@
 
     .screen.active {
       display: block;
-
       animation: pageIn .35s ease both;
     }
 
-    /* =========================
-       CARD
-    ========================= */
+    /* CARD */
 
     .order-card,
     .result {
@@ -226,19 +202,14 @@
       border-radius: 0 0 10px 10px;
     }
 
-    /* =========================
-       TITLE
-    ========================= */
+    /* TITLE */
 
     .title {
       margin: 0;
-
       text-align: center;
 
       font-family: "Fredoka", sans-serif;
-
       font-size: 1.62rem;
-
       font-weight: 500;
 
       color: #6F5B5F;
@@ -250,15 +221,12 @@
       text-align: center;
 
       font-size: .82rem;
-
       line-height: 1.55;
 
       color: #A18388;
     }
 
-    /* =========================
-       FORM
-    ========================= */
+    /* FORM */
 
     .field {
       margin-bottom: 14px;
@@ -270,7 +238,6 @@
       margin-bottom: 7px;
 
       font-size: .78rem;
-
       font-weight: 600;
 
       color: #80686D;
@@ -283,13 +250,11 @@
       padding: 0 14px;
 
       border: 1px solid #E7D4D7;
-
       border-radius: 13px;
 
       outline: none;
 
       background: #FFFDFC;
-
       color: #6F5B5F;
 
       font-size: .86rem;
@@ -310,9 +275,7 @@
       transform: translateY(-1px);
     }
 
-    /* =========================
-       BUTTON
-    ========================= */
+    /* BUTTON */
 
     .btn {
       width: 100%;
@@ -321,13 +284,11 @@
       margin-top: 4px;
 
       border: 0;
-
       border-radius: 13px;
 
       color: white;
 
       font-size: .86rem;
-
       font-weight: 700;
 
       background:
@@ -365,9 +326,7 @@
       box-shadow: none;
     }
 
-    /* =========================
-       LOADING
-    ========================= */
+    /* LOADING */
 
     .loading {
       display: none;
@@ -385,9 +344,7 @@
       display: block;
     }
 
-    /* =========================
-       ERROR
-    ========================= */
+    /* ERROR */
 
     .error {
       display: none;
@@ -415,13 +372,10 @@
       display: block;
     }
 
-    /* =========================
-       RESULT
-    ========================= */
+    /* RESULT */
 
     .result-header {
       text-align: center;
-
       margin-bottom: 18px;
     }
 
@@ -431,7 +385,6 @@
       font-family: "Fredoka", sans-serif;
 
       font-size: 1.35rem;
-
       font-weight: 500;
 
       color: #6F5B5F;
@@ -445,9 +398,40 @@
       color: #A18388;
     }
 
-    /* =========================
-       CUSTOMER
-    ========================= */
+    /* GREETING */
+
+    .greeting {
+      margin-bottom: 16px;
+
+      padding: 14px 15px;
+
+      border-radius: 15px;
+
+      background: #FFF7F8;
+
+      border: 1px solid #F0DCE0;
+    }
+
+    .greeting h3 {
+      margin: 0;
+
+      font-family: "Fredoka", sans-serif;
+
+      font-size: 1.12rem;
+      font-weight: 500;
+
+      color: #6F5B5F;
+    }
+
+    .greeting p {
+      margin: 4px 0 0;
+
+      font-size: .72rem;
+
+      color: #A18388;
+    }
+
+    /* CUSTOMER */
 
     .customer-name {
       margin-bottom: 16px;
@@ -477,22 +461,21 @@
       color: #6F5B5F;
     }
 
-    /* =========================
-       ORDER ITEM
-    ========================= */
+    /* ORDER ITEM */
 
     .order-item {
-      padding: 15px 0;
+      margin-bottom: 12px;
 
-      border-bottom: 1px dashed #E8DADC;
-    }
+      padding: 15px;
 
-    .order-item:first-child {
-      padding-top: 0;
-    }
+      border-radius: 17px;
 
-    .order-item:last-child {
-      border-bottom: 0;
+      background: #FFFDFD;
+
+      border: 1px solid #F0E0E3;
+
+      box-shadow:
+        0 7px 18px rgba(111,91,95,.045);
     }
 
     .book-title {
@@ -533,47 +516,7 @@
       color: #A66D78;
     }
 
-    /* =========================
-       GRAND TOTAL
-    ========================= */
-
-    .grand-total {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      margin-top: 12px;
-
-      padding: 15px;
-
-      border-radius: 15px;
-
-      background: #FFF4F5;
-
-      border: 1px solid #EBCFD4;
-    }
-
-    .grand-total span:first-child {
-      font-size: .76rem;
-
-      color: #8E7278;
-    }
-
-    .grand-total span:last-child {
-      font-family: "Fredoka", sans-serif;
-
-      font-size: 1.15rem;
-
-      font-weight: 500;
-
-      color: #A66D78;
-    }
-
-    /* =========================
-       PAYMENT STATUS
-    ========================= */
+    /* PAYMENT STATUS */
 
     .payment-status {
       display: flex;
@@ -582,7 +525,7 @@
 
       gap: 12px;
 
-      margin-top: 16px;
+      margin-top: 14px;
 
       padding: 14px;
 
@@ -612,7 +555,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       border-radius: 50%;
@@ -668,9 +610,7 @@
       color: #8C777B;
     }
 
-    /* =========================
-       SHIPPING
-    ========================= */
+    /* SHIPPING */
 
     .shipping-status {
       margin-top: 10px;
@@ -688,9 +628,42 @@
       color: #806A70;
     }
 
-    /* =========================
-       PAYMENT PAGE
-    ========================= */
+    /* GRAND TOTAL */
+
+    .grand-total {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      margin-top: 12px;
+
+      padding: 15px;
+
+      border-radius: 15px;
+
+      background: #FFF4F5;
+
+      border: 1px solid #EBCFD4;
+    }
+
+    .grand-total span:first-child {
+      font-size: .76rem;
+
+      color: #8E7278;
+    }
+
+    .grand-total span:last-child {
+      font-family: "Fredoka", sans-serif;
+
+      font-size: 1.15rem;
+
+      font-weight: 500;
+
+      color: #A66D78;
+    }
+
+    /* PAYMENT PAGE */
 
     .payment-card {
       text-align: center;
@@ -766,7 +739,6 @@
       margin-top: 12px;
 
       width: 100%;
-
       height: 42px;
 
       border-radius: 11px;
@@ -802,9 +774,7 @@
       color: #896F4A;
     }
 
-    /* =========================
-       BENEFITS
-    ========================= */
+    /* BENEFITS */
 
     .benefits {
       display: flex;
@@ -820,9 +790,7 @@
       color: #A18388;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     .footer {
       text-align: center;
@@ -836,9 +804,7 @@
       color: #B0969B;
     }
 
-    /* =========================
-       ANIMATION
-    ========================= */
+    /* ANIMATION */
 
     @keyframes floaty {
 
@@ -892,10 +858,6 @@
 
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
     @media (max-height: 700px) {
 
       .page {
@@ -936,7 +898,6 @@
   </style>
 </head>
 
-
 <body>
 
   <!-- ORNAMEN -->
@@ -951,10 +912,7 @@
 
     <div class="stage">
 
-
-      <!-- =========================
-           LOGO
-      ========================= -->
+      <!-- LOGO -->
 
       <div class="logo-wrap">
 
@@ -963,17 +921,10 @@
           src="https://drive.google.com/thumbnail?id=1WqeS39kJveRSuLSDBHDVlKtsAaLUiWVR&sz=w800"
           alt="SEMURA">
 
-        <div class="tagline">
-          When learning becomes a bond
-        </div>
-
       </div>
 
 
-      <!-- =========================
-           SCREEN 1
-           BERANDA
-      ========================= -->
+      <!-- SCREEN 1 -->
 
       <section
         id="homeScreen"
@@ -985,12 +936,10 @@
             Cek Pesanan
           </h1>
 
-
           <p class="subtitle">
             Masukkan Kode Grup dan Nomor WhatsApp
             untuk melihat pesananmu.
           </p>
-
 
           <div class="field">
 
@@ -1052,10 +1001,7 @@
       </section>
 
 
-      <!-- =========================
-           SCREEN 2
-           HASIL PESANAN
-      ========================= -->
+      <!-- SCREEN 2 -->
 
       <section
         id="resultScreen"
@@ -1072,6 +1018,21 @@
 
             <p>
               Berikut detail pesanan yang ditemukan.
+            </p>
+
+          </div>
+
+
+          <!-- GREETING -->
+
+          <div class="greeting">
+
+            <h3 id="greetingName">
+              Hai! 👋
+            </h3>
+
+            <p>
+              Senang melihatmu kembali 🤍
             </p>
 
           </div>
@@ -1094,8 +1055,12 @@
           </div>
 
 
+          <!-- SETIAP BUKU AKAN DIBUAT DI SINI -->
+
           <div id="orderList"></div>
 
+
+          <!-- TOTAL -->
 
           <div class="grand-total">
 
@@ -1110,61 +1075,11 @@
           </div>
 
 
-          <!-- PAYMENT STATUS -->
+          <!-- PAYMENT BUTTON -->
 
           <div
-            class="payment-status unpaid"
-            id="paymentStatus">
-
-            <div
-              class="payment-status-icon"
-              id="paymentStatusIcon">
-
-              🕐
-
-            </div>
-
-
-            <div class="payment-status-content">
-
-              <div class="payment-status-title">
-                Status Pembayaran
-              </div>
-
-              <div
-                class="payment-done-text"
-                id="paymentStatusText">
-
-                BELUM BAYAR
-
-              </div>
-
-              <div
-                class="payment-status-description"
-                id="paymentStatusDescription">
-
-                Silakan lakukan pembayaran untuk
-                melanjutkan proses pesanan.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- SHIPPING STATUS -->
-
-          <div
-            class="shipping-status"
-            id="shippingStatus">
-
-            Status Pengiriman: -
-
-          </div>
-
-
-          <div style="margin-top:14px;">
+            id="instructionWrapper"
+            style="margin-top:14px;">
 
             <button
               class="btn"
@@ -1196,10 +1111,7 @@
       </section>
 
 
-      <!-- =========================
-           SCREEN 3
-           PEMBAYARAN
-      ========================= -->
+      <!-- SCREEN 3 -->
 
       <section
         id="paymentScreen"
@@ -1323,7 +1235,6 @@
 
       </div>
 
-
     </div>
 
   </main>
@@ -1352,10 +1263,6 @@
     const NO_WA_ADMIN =
       "6282115465899";
 
-
-    /* =====================================================
-       WHATSAPP MESSAGE
-    ===================================================== */
 
     let currentWhatsappMessage = "";
 
@@ -1401,13 +1308,10 @@
     function normalisasiNomor(nomor) {
 
       let value =
-        String(nomor || "")
-          .trim();
-
+        String(nomor || "").trim();
 
       value =
         value.replace(/\D/g, "");
-
 
       if (
         value.indexOf("62") === 0
@@ -1418,7 +1322,6 @@
           value.substring(2);
 
       }
-
 
       return value;
 
@@ -1450,10 +1353,8 @@
       const loading =
         document.getElementById("loading");
 
-
       const error =
         document.getElementById("error");
-
 
       const button =
         document.getElementById("cekButton");
@@ -1484,10 +1385,6 @@
       button.style.opacity = ".7";
 
 
-      /*
-       * CALLBACK UNIK
-       */
-
       const callbackName =
         "semuraCallback_" +
         Date.now();
@@ -1496,10 +1393,6 @@
       let script = null;
 
 
-      /*
-       * SIMPAN INPUT UNTUK PESAN WHATSAPP
-       */
-
       window.semuraKodeGrup =
         kodeGrup;
 
@@ -1507,18 +1400,12 @@
         nomorWhatsapp;
 
 
-      /*
-       * CALLBACK JSONP
-       */
-
       window[callbackName] =
         function(response) {
 
           try {
 
-            prosesHasilPesanan(
-              response
-            );
+            prosesHasilPesanan(response);
 
           }
 
@@ -1528,7 +1415,6 @@
               "SEMURA ERROR:",
               err
             );
-
 
             error.textContent =
               "Data pesanan gagal diproses.";
@@ -1544,7 +1430,6 @@
             button.disabled = false;
 
             button.style.opacity = "1";
-
 
             delete window[callbackName];
 
@@ -1564,28 +1449,16 @@
         };
 
 
-      /*
-       * URL REQUEST
-       */
-
       const url =
         API_URL +
-
         "?action=cariPesanan" +
-
         "&kodeGrup=" +
         encodeURIComponent(kodeGrup) +
-
         "&nomorWhatsapp=" +
         encodeURIComponent(nomorWhatsapp) +
-
         "&callback=" +
         encodeURIComponent(callbackName);
 
-
-      /*
-       * JSONP SCRIPT
-       */
 
       script =
         document.createElement("script");
@@ -1637,17 +1510,11 @@
        PROSES HASIL PESANAN
     ===================================================== */
 
-    function prosesHasilPesanan(
-      response
-    ) {
+    function prosesHasilPesanan(response) {
 
       const error =
         document.getElementById("error");
 
-
-      /*
-       * CEK RESPONSE
-       */
 
       if (
         !response ||
@@ -1666,10 +1533,6 @@
 
       }
 
-
-      /*
-       * PASTIKAN DATA ADA
-       */
 
       if (
         !Array.isArray(response.data) ||
@@ -1690,9 +1553,7 @@
         response.data[0];
 
 
-      /*
-       * NAMA PEMESAN
-       */
+      /* NAMA */
 
       document
         .getElementById("customerName")
@@ -1700,15 +1561,26 @@
         first.namaPemesan || "-";
 
 
-      /*
-       * ORDER LIST
-       */
+      /* GREETING */
+
+      document
+        .getElementById("greetingName")
+        .textContent =
+        "Hai, " +
+        (first.namaPemesan || "") +
+        "! 👋";
+
+
+      /* ORDER LIST */
 
       const orderList =
         document.getElementById("orderList");
 
 
       orderList.innerHTML = "";
+
+
+      let adaYangBelumBayar = false;
 
 
       response.data.forEach(
@@ -1722,36 +1594,148 @@
             "order-item";
 
 
+          const statusPembayaran =
+            String(
+              item.statusPembayaran || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+          const sudahBayar = [
+
+            "done",
+            "lunas",
+            "selesai",
+            "sudah bayar",
+            "sudah dibayar",
+            "done payment"
+
+          ].includes(
+            statusPembayaran
+          );
+
+
+          if (!sudahBayar) {
+
+            adaYangBelumBayar = true;
+
+          }
+
+
+          const paymentClass =
+            sudahBayar
+              ? "done"
+              : "unpaid";
+
+
+          const paymentIcon =
+            sudahBayar
+              ? "✓"
+              : "⏳";
+
+
+          const paymentText =
+            sudahBayar
+              ? "DONE PAYMENT"
+              : "BELUM BAYAR";
+
+
+          const paymentDescription =
+            sudahBayar
+
+              ? "Pembayaran sudah diterima. Terima kasih 🤍"
+
+              : "Silakan lakukan pembayaran untuk melanjutkan proses pesanan.";
+
+
+          const shipping =
+            item.statusPengiriman || "-";
+
+
           div.innerHTML = `
 
             <div class="book-title">
+
               ${escapeHtml(
                 item.judulBuku || "-"
               )}
+
             </div>
+
 
             <div class="item-meta">
 
               <span>
+
                 Qty:
                 ${escapeHtml(
                   item.qty || "0"
                 )}
+
               </span>
 
+
               <span>
+
                 ${escapeHtml(
                   item.harga || "Rp0"
                 )}
+
               </span>
 
             </div>
+
 
             <div class="item-total">
 
               ${escapeHtml(
                 item.totalHarga || "Rp0"
               )}
+
+            </div>
+
+
+            <div class="payment-status ${paymentClass}">
+
+              <div class="payment-status-icon">
+
+                ${paymentIcon}
+
+              </div>
+
+
+              <div class="payment-status-content">
+
+                <div class="payment-status-title">
+
+                  Status Pembayaran
+
+                </div>
+
+
+                <div class="payment-done-text">
+
+                  ${paymentText}
+
+                </div>
+
+
+                <div class="payment-status-description">
+
+                  ${paymentDescription}
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="shipping-status">
+
+              Status Pengiriman:
+              ${escapeHtml(shipping)}
 
             </div>
 
@@ -1764,9 +1748,7 @@
       );
 
 
-      /*
-       * TOTAL
-       */
+      /* TOTAL */
 
       let totalSemua =
         Number(
@@ -1774,9 +1756,7 @@
         );
 
 
-      if (
-        !totalSemua
-      ) {
+      if (!totalSemua) {
 
         totalSemua =
           response.data.reduce(
@@ -1806,207 +1786,24 @@
       document
         .getElementById("grandTotal")
         .textContent =
-        formatRupiah(
-          totalSemua
-        );
+        formatRupiah(totalSemua);
 
 
-      /*
-       * STATUS PEMBAYARAN
-       */
+      /* TOMBOL PEMBAYARAN */
 
-      const paymentStatus =
+      const instructionWrapper =
         document.getElementById(
-          "paymentStatus"
+          "instructionWrapper"
         );
 
 
-      const paymentStatusText =
-        document.getElementById(
-          "paymentStatusText"
-        );
+      instructionWrapper.style.display =
+        adaYangBelumBayar
+          ? "block"
+          : "none";
 
 
-      const paymentStatusIcon =
-        document.getElementById(
-          "paymentStatusIcon"
-        );
-
-
-      const paymentStatusDescription =
-        document.getElementById(
-          "paymentStatusDescription"
-        );
-
-
-      const instructionBtn =
-        document.getElementById(
-          "instructionBtn"
-        );
-
-
-      const semuaSudahLunas =
-        response.data.every(
-          function(item) {
-
-            const status =
-              String(
-                item.statusPembayaran || ""
-              )
-              .trim()
-              .toLowerCase();
-
-
-            return [
-
-              "done",
-              "lunas",
-              "selesai",
-              "sudah bayar",
-              "sudah dibayar",
-              "done payment"
-
-            ].includes(status);
-
-          }
-        );
-
-
-      if (
-        semuaSudahLunas
-      ) {
-
-        paymentStatus
-          .classList
-          .remove("unpaid");
-
-
-        paymentStatus
-          .classList
-          .add("done");
-
-
-        paymentStatusIcon.textContent =
-          "✓";
-
-
-        paymentStatusText.textContent =
-          "DONE PAYMENT";
-
-
-        paymentStatusDescription.textContent =
-          "Pembayaran sudah diterima. Terima kasih 🤍";
-
-
-        instructionBtn.style.display =
-          "none";
-
-      }
-
-      else {
-
-        paymentStatus
-          .classList
-          .remove("done");
-
-
-        paymentStatus
-          .classList
-          .add("unpaid");
-
-
-        paymentStatusIcon.textContent =
-          "🕐";
-
-
-        paymentStatusText.textContent =
-          "BELUM BAYAR";
-
-
-        paymentStatusDescription.textContent =
-          "Silakan lakukan pembayaran untuk melanjutkan proses pesanan.";
-
-
-        instructionBtn.style.display =
-          "block";
-
-      }
-
-
-      /*
-       * STATUS PENGIRIMAN
-       */
-
-      const shippingStatuses =
-        response.data.map(
-          function(item) {
-
-            return (
-              item.statusPengiriman ||
-              "-"
-            );
-
-          }
-        );
-
-
-      const shippingDone =
-        shippingStatuses.every(
-          function(status) {
-
-            const s =
-              String(status)
-                .trim()
-                .toLowerCase();
-
-
-            return [
-
-              "done",
-              "terkirim",
-              "selesai"
-
-            ].includes(s);
-
-          }
-        );
-
-
-      const shippingStatus =
-        document.getElementById(
-          "shippingStatus"
-        );
-
-
-      if (
-        shippingDone
-      ) {
-
-        shippingStatus.textContent =
-          "Status Pengiriman: DONE / TERKIRIM ✓";
-
-      }
-
-      else {
-
-        shippingStatus.textContent =
-          "Status Pengiriman: " +
-          shippingStatuses[0];
-
-      }
-
-
-      /*
-       * PESAN WHATSAPP
-       *
-       * PENTING:
-       * Mengambil kode dan nomor dari
-       * window.semuraKodeGrup dan
-       * window.semuraNomorWhatsapp.
-       *
-       * Jadi tidak lagi error
-       * karena variabel lokal.
-       */
+      /* WHATSAPP */
 
       const kodeUntukWA =
         window.semuraKodeGrup || "";
@@ -2041,10 +1838,6 @@
         "Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
 
 
-      /*
-       * TAMPILKAN HALAMAN HASIL
-       */
-
       showScreen(
         "resultScreen"
       );
@@ -2056,17 +1849,13 @@
        FORMAT RUPIAH
     ===================================================== */
 
-    function formatRupiah(
-      angka
-    ) {
+    function formatRupiah(angka) {
 
       return "Rp" +
         Number(
           angka || 0
         )
-        .toLocaleString(
-          "id-ID"
-        );
+        .toLocaleString("id-ID");
 
     }
 
@@ -2083,9 +1872,7 @@
       ) {
 
         navigator.clipboard
-          .writeText(
-            NO_REKENING_BCA
-          )
+          .writeText(NO_REKENING_BCA)
 
           .then(
             function() {
@@ -2138,9 +1925,7 @@
         "https://wa.me/" +
         NO_WA_ADMIN +
         "?text=" +
-        encodeURIComponent(
-          message
-        );
+        encodeURIComponent(message);
 
 
       window.open(
@@ -2155,38 +1940,21 @@
        ESCAPE HTML
     ===================================================== */
 
-    function escapeHtml(
-      value
-    ) {
+    function escapeHtml(value) {
 
       return String(
         value || ""
       )
 
-      .replace(
-        /&/g,
-        "&amp;"
-      )
+      .replace(/&/g, "&amp;")
 
-      .replace(
-        /</g,
-        "&lt;"
-      )
+      .replace(/</g, "&lt;")
 
-      .replace(
-        />/g,
-        "&gt;"
-      )
+      .replace(/>/g, "&gt;")
 
-      .replace(
-        /"/g,
-        "&quot;"
-      )
+      .replace(/"/g, "&quot;")
 
-      .replace(
-        /'/g,
-        "&#039;"
-      );
+      .replace(/'/g, "&#039;");
 
     }
 
