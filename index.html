@@ -47,6 +47,7 @@ pointer-events:none;
 z-index:0;
 user-select:none
 }
+
 .d1{top:7%;left:4%;animation:floaty 4s ease-in-out infinite}
 .d2{top:14%;right:5%;animation:floaty 5s ease-in-out infinite}
 .d3{bottom:13%;left:6%;animation:floaty 4.5s ease-in-out infinite}
@@ -182,15 +183,30 @@ border:1px solid #E8C7CD;
 box-shadow:none
 }
 
+/* LOADING */
+
 .loading{
 display:none;
 margin-top:14px;
 text-align:center;
 font-size:.78rem;
-color:#A18388
+color:#A18388;
+align-items:center;
+justify-content:center;
+gap:8px
 }
 
-.loading.show{display:block}
+.loading.show{display:flex}
+
+.spinner{
+width:15px;
+height:15px;
+border:2px solid #E8C7CD;
+border-top-color:#B97886;
+border-radius:50%;
+animation:spin .7s linear infinite;
+flex-shrink:0
+}
 
 .error{
 display:none;
@@ -206,6 +222,8 @@ color:#A55F6B
 }
 
 .error.show{display:block}
+
+/* RESULT */
 
 .result-header{
 text-align:center;
@@ -319,8 +337,9 @@ border:1px solid #EBCFD4
 }
 
 .grand-total span:first-child{
-font-size:.76rem;
-color:#8E7278
+font-size:.78rem;
+font-weight:700;
+color:#6F5B5F
 }
 
 .grand-total span:last-child{
@@ -330,7 +349,7 @@ font-weight:500;
 color:#A66D78
 }
 
-/* STATUS PEMBAYARAN UTAMA */
+/* STATUS PEMBAYARAN */
 
 .overall-payment{
 display:flex;
@@ -422,6 +441,57 @@ line-height:1.55;
 color:#A18388
 }
 
+/* TOTAL DI HALAMAN PAYMENT */
+
+.payment-total{
+margin:0 0 18px;
+padding:15px;
+border-radius:15px;
+background:#FFF4F5;
+border:1px solid #EBCFD4;
+text-align:center
+}
+
+.payment-total span{
+display:block;
+font-size:.72rem;
+font-weight:600;
+color:#8E7278;
+margin-bottom:4px
+}
+
+.payment-total-row{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px
+}
+
+.payment-total strong{
+font-family:"Fredoka",sans-serif;
+font-size:1.35rem;
+font-weight:600;
+color:#A66D78
+}
+
+.copy-total-btn{
+width:30px;
+height:30px;
+padding:0;
+border-radius:9px;
+background:#FFF;
+border:1px solid #E8C7CD;
+color:#A66D78;
+font-size:.9rem;
+cursor:pointer
+}
+
+.copy-total-btn.copied{
+background:#F0F9F2;
+border-color:#CDE8D2;
+color:#2E7D32
+}
+
 .bca-logo{
 width:120px;
 max-width:45%;
@@ -466,6 +536,12 @@ font-size:.76rem;
 font-weight:700
 }
 
+.copy-btn.copied{
+background:#F0F9F2;
+border-color:#CDE8D2;
+color:#2E7D32
+}
+
 .payment-note{
 margin-top:15px;
 padding:13px;
@@ -495,6 +571,8 @@ line-height:1.6;
 color:#B0969B
 }
 
+/* ANIMATION */
+
 @keyframes floaty{
 0%,100%{transform:translateY(0)}
 50%{transform:translateY(-7px)}
@@ -513,6 +591,10 @@ to{opacity:1;transform:translateY(0)}
 @keyframes pageIn{
 from{opacity:0;transform:translateY(7px)}
 to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes spin{
+to{transform:rotate(360deg)}
 }
 
 @media(max-height:700px){
@@ -540,6 +622,7 @@ to{opacity:1;transform:translateY(0)}
 <div class="stage">
 
 <!-- LOGO -->
+
 <div class="logo-wrap">
 <img
 class="logo"
@@ -548,10 +631,13 @@ alt="SEMURA">
 </div>
 
 <!-- BERANDA -->
+
 <section id="homeScreen" class="screen active">
 <div class="order-card">
 
-<h1 class="title">Cek Pesanan</h1>
+<h1 class="title">
+Cek Pesanan
+</h1>
 
 <p class="subtitle">
 Masukkan Kode Grup dan Nomor WhatsApp
@@ -559,34 +645,49 @@ untuk melihat pesananmu.
 </p>
 
 <div class="field">
-<label for="kodeGrup">Kode Grup</label>
+
+<label for="kodeGrup">
+Kode Grup
+</label>
+
 <input
 type="text"
 id="kodeGrup"
 placeholder="Contoh: G1/G2/G3"
 autocomplete="off">
+
 </div>
 
 <div class="field">
-<label for="nomorWhatsapp">Nomor WhatsApp</label>
+
+<label for="nomorWhatsapp">
+Nomor WhatsApp
+</label>
+
 <input
 type="tel"
 id="nomorWhatsapp"
 placeholder="Contoh: 081234567890"
 autocomplete="tel">
+
 </div>
 
 <button
 class="btn"
 id="cekButton"
 onclick="cekPesanan()">
+
 SUBMIT
+
 </button>
 
 <div
 class="loading"
 id="loading">
-Sedang mencari pesanan... 🤍
+
+<span class="spinner"></span>
+<span>Sedang mencari pesanan...</span>
+
 </div>
 
 <div
@@ -598,22 +699,39 @@ id="error">
 </section>
 
 <!-- HASIL -->
+
 <section id="resultScreen" class="screen">
+
 <div class="result">
 
 <div class="result-header">
-<h2>Pesanan Ditemukan 💗</h2>
-<p id="customerName">-</p>
+
+<h2>
+Pesanan Ditemukan 💗
+</h2>
+
+<p id="customerName">
+-
+</p>
+
 </div>
 
 <div id="orderList"></div>
 
 <div class="grand-total">
-<span>Total Pesanan</span>
-<span id="grandTotal">Rp0</span>
+
+<span>
+Total Pesanan
+</span>
+
+<span id="grandTotal">
+Rp0
+</span>
+
 </div>
 
 <!-- STATUS PEMBAYARAN UTAMA -->
+
 <div
 id="paymentStatus"
 class="overall-payment unpaid">
@@ -621,7 +739,9 @@ class="overall-payment unpaid">
 <div
 class="payment-status-icon"
 id="paymentIcon">
+
 ⏳
+
 </div>
 
 <div class="payment-status-content">
@@ -633,16 +753,21 @@ Status Pembayaran
 <div
 class="payment-done-text"
 id="paymentText">
+
 BELUM BAYAR
+
 </div>
 
 <div
 class="payment-status-description"
 id="paymentDescription">
+
 Silakan lakukan pembayaran untuk melanjutkan proses pesanan.
+
 </div>
 
 </div>
+
 </div>
 
 <div
@@ -652,7 +777,9 @@ style="margin-top:14px">
 <button
 class="btn"
 onclick="showScreen('paymentScreen')">
+
 💳 LIHAT INSTRUKSI PEMBAYARAN
+
 </button>
 
 </div>
@@ -662,16 +789,21 @@ onclick="showScreen('paymentScreen')">
 <button
 class="btn btn-secondary"
 onclick="showScreen('homeScreen')">
+
 ← Kembali ke Beranda
+
 </button>
 
 </div>
 
 </div>
+
 </section>
 
 <!-- PEMBAYARAN -->
+
 <section id="paymentScreen" class="screen">
+
 <div class="result payment-card">
 
 <img
@@ -688,6 +820,33 @@ Silakan transfer sesuai total pesanan
 ke rekening berikut.
 </p>
 
+<!-- TOTAL PEMBAYARAN -->
+
+<div class="payment-total">
+
+<span>
+Total yang harus dibayar
+</span>
+
+<div class="payment-total-row">
+
+<strong id="paymentTotal">
+Rp0
+</strong>
+
+<button
+class="copy-total-btn"
+onclick="salinTotal()"
+aria-label="Salin total pembayaran">
+
+📋
+
+</button>
+
+</div>
+
+</div>
+
 <div class="bank-box">
 
 <div class="bank-label">
@@ -697,7 +856,9 @@ Nomor Rekening BCA
 <div
 class="bank-number"
 id="rekeningBca">
+
 0154739978
+
 </div>
 
 <div class="bank-owner">
@@ -707,15 +868,19 @@ a.n. Natasya A
 <button
 class="copy-btn"
 onclick="salinRekening()">
+
 SALIN NOMOR REKENING
+
 </button>
 
 </div>
 
 <div class="payment-note">
+
 Setelah melakukan transfer, silakan kirim
 <b>bukti pembayaran</b> melalui WhatsApp Admin
 SEMURA agar pembayaran dapat segera dicek. 🤍
+
 </div>
 
 <div style="margin-top:15px">
@@ -723,7 +888,9 @@ SEMURA agar pembayaran dapat segera dicek. 🤍
 <button
 class="btn"
 onclick="konfirmasiWhatsApp()">
+
 KONFIRMASI VIA WHATSAPP
+
 </button>
 
 </div>
@@ -733,26 +900,37 @@ KONFIRMASI VIA WHATSAPP
 <button
 class="btn btn-secondary"
 onclick="showScreen('resultScreen')">
+
 ← KEMBALI
+
 </button>
 
 </div>
 
 </div>
+
 </section>
 
 <!-- BENEFITS -->
+
 <div class="benefits">
+
 <span>🌸 Mudah</span>
 <span>✨ Aman</span>
 <span>💖 Praktis</span>
+
 </div>
 
 <!-- FOOTER -->
+
 <div class="footer">
+
 © 2026 SEMURA · Since 2022
+
 <br>
+
 Baby & Mom
+
 </div>
 
 </div>
@@ -778,14 +956,18 @@ function showScreen(id){
 document
 .querySelectorAll(".screen")
 .forEach(function(screen){
+
 screen.classList.remove("active");
+
 });
 
 const target =
 document.getElementById(id);
 
 if(target){
+
 target.classList.add("active");
+
 }
 
 window.scrollTo({
@@ -805,9 +987,11 @@ String(nomor || "")
 .replace(/\D/g,"");
 
 if(value.indexOf("62") === 0){
+
 value =
 "0" +
 value.substring(2);
+
 }
 
 return value;
@@ -956,7 +1140,7 @@ document.body.appendChild(script);
 
 }
 
-/* PROSES PESANAN */
+/* PROSES HASIL */
 
 function prosesHasilPesanan(response){
 
@@ -1009,6 +1193,8 @@ orderList.innerHTML = "";
 
 let adaYangBelumBayar = false;
 
+let totalDariCard = 0;
+
 response.data.forEach(
 function(item){
 
@@ -1031,8 +1217,31 @@ const sudahBayar = [
 ].includes(status);
 
 if(!sudahBayar){
+
 adaYangBelumBayar = true;
+
 }
+
+/* HITUNG QTY × HARGA */
+
+const qty =
+Number(
+String(item.qty || "0")
+.replace(/[^\d]/g,"")
+) || 0;
+
+const harga =
+Number(
+String(item.harga || "0")
+.replace(/[^\d]/g,"")
+) || 0;
+
+const subtotal =
+qty * harga;
+
+totalDariCard += subtotal;
+
+/* CARD BUKU */
 
 const div =
 document.createElement("div");
@@ -1047,17 +1256,25 @@ div.innerHTML = `
 <div>
 
 <div class="book-title">
-📖 ${escapeHtml(item.judulBuku || "-")}
+
+📖 ${escapeHtml(
+item.judulBuku || "-"
+)}
+
 </div>
 
 <div class="item-meta">
-Qty: ${escapeHtml(item.qty || "0")}
+
+Qty: ${qty} × ${formatRupiah(harga)}
+
 </div>
 
 </div>
 
 <div class="book-price">
-${escapeHtml(item.totalHarga || "Rp0")}
+
+${formatRupiah(subtotal)}
+
 </div>
 
 </div>
@@ -1109,28 +1326,13 @@ orderList.appendChild(div);
 /* TOTAL */
 
 let totalSemua =
-Number(
-response.totalSemua || 0
-);
+totalDariCard;
 
 if(!totalSemua){
 
 totalSemua =
-response.data.reduce(
-function(total,item){
-
-const angka =
-parseInt(
-String(
-item.totalHarga || ""
-)
-.replace(/[^\d]/g,"")
-) || 0;
-
-return total + angka;
-
-},
-0
+Number(
+response.totalSemua || 0
 );
 
 }
@@ -1140,16 +1342,29 @@ document
 .textContent =
 formatRupiah(totalSemua);
 
-/* STATUS UTAMA */
+/* TOTAL DI HALAMAN PAYMENT */
+
+document
+.getElementById("paymentTotal")
+.textContent =
+formatRupiah(totalSemua);
+
+/* STATUS PEMBAYARAN */
 
 const paymentStatus =
-document.getElementById("paymentStatus");
+document.getElementById(
+"paymentStatus"
+);
 
 const paymentIcon =
-document.getElementById("paymentIcon");
+document.getElementById(
+"paymentIcon"
+);
 
 const paymentText =
-document.getElementById("paymentText");
+document.getElementById(
+"paymentText"
+);
 
 const paymentDescription =
 document.getElementById(
@@ -1186,10 +1401,12 @@ paymentDescription.textContent =
 
 }
 
-/* TOMBOL PEMBAYARAN */
+/* TOMBOL INSTRUKSI */
 
 document
-.getElementById("instructionWrapper")
+.getElementById(
+"instructionWrapper"
+)
 .style.display =
 adaYangBelumBayar
 ? "block"
@@ -1221,7 +1438,9 @@ formatRupiah(totalSemua) +
 
 "Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
 
-showScreen("resultScreen");
+showScreen(
+"resultScreen"
+);
 
 }
 
@@ -1235,9 +1454,34 @@ Number(angka || 0)
 
 }
 
-/* SALIN REKENING */
+/* SALIN REKENING - TANPA POPUP */
 
 function salinRekening(){
+
+const btn =
+document.querySelector(".copy-btn");
+
+const berhasil =
+function(){
+
+const teksLama =
+btn.textContent;
+
+btn.textContent =
+"✓ BERHASIL DISALIN";
+
+btn.classList.add("copied");
+
+setTimeout(function(){
+
+btn.textContent =
+teksLama;
+
+btn.classList.remove("copied");
+
+},2000);
+
+};
 
 if(
 navigator.clipboard &&
@@ -1246,30 +1490,126 @@ navigator.clipboard.writeText
 
 navigator.clipboard
 .writeText(NO_REKENING_BCA)
-.then(function(){
-
-alert(
-"Nomor rekening berhasil disalin 🤍"
-);
-
-})
+.then(berhasil)
 .catch(function(){
 
-alert(
-"Nomor rekening: " +
-NO_REKENING_BCA
+fallbackCopy(
+NO_REKENING_BCA,
+berhasil
 );
 
 });
 
 }else{
 
-alert(
-"Nomor rekening: " +
-NO_REKENING_BCA
+fallbackCopy(
+NO_REKENING_BCA,
+berhasil
 );
 
 }
+
+}
+
+/* SALIN TOTAL */
+
+function salinTotal(){
+
+const total =
+document
+.getElementById("paymentTotal")
+.textContent;
+
+const btn =
+document.querySelector(
+".copy-total-btn"
+);
+
+const berhasil =
+function(){
+
+btn.textContent =
+"✓";
+
+btn.classList.add("copied");
+
+setTimeout(function(){
+
+btn.textContent =
+"📋";
+
+btn.classList.remove("copied");
+
+},2000);
+
+};
+
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
+
+navigator.clipboard
+.writeText(total)
+.then(berhasil)
+.catch(function(){
+
+fallbackCopy(
+total,
+berhasil
+);
+
+});
+
+}else{
+
+fallbackCopy(
+total,
+berhasil
+);
+
+}
+
+}
+
+/* FALLBACK COPY */
+
+function fallbackCopy(
+text,
+callback
+){
+
+const temp =
+document.createElement(
+"textarea"
+);
+
+temp.value = text;
+
+temp.style.position =
+"fixed";
+
+temp.style.opacity =
+"0";
+
+document.body.appendChild(temp);
+
+temp.focus();
+temp.select();
+
+try{
+
+document.execCommand("copy");
+
+}catch(e){
+
+console.error(e);
+
+}
+
+document.body.removeChild(temp);
+
+callback();
 
 }
 
