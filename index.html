@@ -57,6 +57,7 @@
     .page {
       min-height: 100dvh;
       padding: 24px 16px;
+
       display: flex;
       justify-content: center;
     }
@@ -64,9 +65,11 @@
     .stage {
       width: 100%;
       max-width: 420px;
+
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       animation: fadeInUp .7s ease both;
     }
 
@@ -120,18 +123,26 @@
       width: 180px;
       max-width: 60%;
       height: auto;
+
       display: inline-block;
 
       animation: pulseSoft 4s ease-in-out infinite;
 
-      filter: drop-shadow(0 10px 20px rgba(185,120,134,.18));
+      filter:
+        drop-shadow(
+          0 10px 20px rgba(185,120,134,.18)
+        );
     }
 
     .tagline {
       margin-top: 6px;
+
       font-family: "Fredoka", sans-serif;
+
       font-size: .82rem;
+
       color: #9A777E;
+
       letter-spacing: .2px;
     }
 
@@ -175,30 +186,37 @@
     .order-card::before,
     .result::before {
       content: "";
+
       position: absolute;
+
       top: 0;
       left: 14%;
       right: 14%;
+
       height: 3px;
 
-      background: linear-gradient(
-        90deg,
-        transparent,
-        #E8C7CD,
-        #B97886,
-        #E8C7CD,
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #E8C7CD,
+          #B97886,
+          #E8C7CD,
+          transparent
+        );
 
       border-radius: 0 0 10px 10px;
     }
 
     .title {
       margin: 0;
+
       text-align: center;
 
       font-family: "Fredoka", sans-serif;
+
       font-size: 1.62rem;
+
       font-weight: 500;
 
       color: #6F5B5F;
@@ -210,6 +228,7 @@
       text-align: center;
 
       font-size: .82rem;
+
       line-height: 1.55;
 
       color: #A18388;
@@ -229,6 +248,7 @@
       margin-bottom: 7px;
 
       font-size: .78rem;
+
       font-weight: 600;
 
       color: #80686D;
@@ -241,6 +261,7 @@
       padding: 0 14px;
 
       border: 1px solid #E7D4D7;
+
       border-radius: 13px;
 
       outline: none;
@@ -278,11 +299,13 @@
       margin-top: 4px;
 
       border: 0;
+
       border-radius: 13px;
 
       color: white;
 
       font-size: .86rem;
+
       font-weight: 700;
 
       background:
@@ -308,6 +331,7 @@
 
     .btn-secondary {
       background: #FFF4F5;
+
       color: #A66D78;
 
       border: 1px solid #E8C7CD;
@@ -339,16 +363,19 @@
       display: none;
 
       margin-top: 14px;
+
       padding: 12px 13px;
 
       border-radius: 12px;
 
       background: #FFF0F1;
+
       border: 1px solid #F0CDD2;
 
       text-align: center;
 
       font-size: .76rem;
+
       line-height: 1.5;
 
       color: #A55F6B;
@@ -364,6 +391,7 @@
 
     .result-header {
       text-align: center;
+
       margin-bottom: 18px;
     }
 
@@ -371,7 +399,9 @@
       margin: 0;
 
       font-family: "Fredoka", sans-serif;
+
       font-size: 1.35rem;
+
       font-weight: 500;
 
       color: #6F5B5F;
@@ -381,6 +411,7 @@
       margin: 6px 0 0;
 
       font-size: .76rem;
+
       color: #A18388;
     }
 
@@ -392,23 +423,28 @@
       border-radius: 14px;
 
       background: #FFF7F8;
+
       border: 1px solid #F0DCE0;
     }
 
     .customer-name-label {
       font-size: .7rem;
+
       color: #A18388;
+
       margin-bottom: 4px;
     }
 
     .customer-name-value {
       font-size: .9rem;
+
       font-weight: 700;
+
       color: #6F5B5F;
     }
 
     /* =========================
-       ITEM PESANAN
+       ITEM
     ========================= */
 
     .order-item {
@@ -427,7 +463,9 @@
 
     .book-title {
       font-family: "Fredoka", sans-serif;
+
       font-size: .98rem;
+
       font-weight: 500;
 
       color: #6F5B5F;
@@ -437,12 +475,15 @@
 
     .item-meta {
       display: flex;
+
       justify-content: space-between;
+
       gap: 10px;
 
       margin-top: 8px;
 
       font-size: .73rem;
+
       color: #9A8186;
     }
 
@@ -452,53 +493,63 @@
       text-align: right;
 
       font-size: .82rem;
+
       font-weight: 700;
 
       color: #A66D78;
     }
 
     /* =========================
-       TOTAL
+       GRAND TOTAL
     ========================= */
 
     .grand-total {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
 
       margin-top: 12px;
+
       padding: 15px;
 
       border-radius: 15px;
 
       background: #FFF4F5;
+
       border: 1px solid #EBCFD4;
     }
 
     .grand-total span:first-child {
       font-size: .76rem;
+
       color: #8E7278;
     }
 
     .grand-total span:last-child {
       font-family: "Fredoka", sans-serif;
+
       font-size: 1.15rem;
+
       font-weight: 500;
 
       color: #A66D78;
     }
 
     /* =========================
-       STATUS PEMBAYARAN
+       PAYMENT STATUS
     ========================= */
 
     .payment-status {
       display: flex;
+
       align-items: center;
 
       gap: 12px;
 
       margin-top: 16px;
+
       padding: 14px;
 
       border-radius: 16px;
@@ -508,11 +559,13 @@
 
     .payment-status.unpaid {
       background: #FFF4DC;
+
       border-color: #F3D7A5;
     }
 
     .payment-status.done {
       background: #F0F9F2;
+
       border-color: #CDE8D2;
     }
 
@@ -523,6 +576,7 @@
       height: 40px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -539,6 +593,7 @@
       background: #D9F0DE;
 
       color: #2E7D32;
+
       font-weight: 700;
     }
 
@@ -548,6 +603,7 @@
 
     .payment-status-title {
       font-size: .68rem;
+
       color: #9A8186;
 
       margin-bottom: 2px;
@@ -555,6 +611,7 @@
 
     .payment-done-text {
       font-size: .86rem;
+
       font-weight: 700;
     }
 
@@ -570,6 +627,7 @@
       margin-top: 3px;
 
       font-size: .7rem;
+
       line-height: 1.4;
 
       color: #8C777B;
@@ -587,6 +645,7 @@
       border-radius: 13px;
 
       background: #FAF7F7;
+
       border: 1px solid #EDE1E3;
 
       font-size: .74rem;
@@ -595,7 +654,7 @@
     }
 
     /* =========================
-       PAYMENT SCREEN
+       PAYMENT PAGE
     ========================= */
 
     .payment-card {
@@ -606,7 +665,9 @@
       margin: 0;
 
       font-family: "Fredoka", sans-serif;
+
       font-size: 1.45rem;
+
       font-weight: 500;
 
       color: #6F5B5F;
@@ -616,6 +677,7 @@
       margin: 7px 0 20px;
 
       font-size: .78rem;
+
       line-height: 1.55;
 
       color: #A18388;
@@ -623,6 +685,7 @@
 
     .bca-logo {
       width: 120px;
+
       max-width: 45%;
 
       margin-bottom: 14px;
@@ -634,11 +697,13 @@
       border-radius: 17px;
 
       background: #FFF8F9;
+
       border: 1px solid #EEDADD;
     }
 
     .bank-label {
       font-size: .7rem;
+
       color: #A18388;
     }
 
@@ -646,7 +711,9 @@
       margin-top: 5px;
 
       font-family: "Fredoka", sans-serif;
+
       font-size: 1.45rem;
+
       letter-spacing: 1px;
 
       color: #6F5B5F;
@@ -656,6 +723,7 @@
       margin-top: 4px;
 
       font-size: .76rem;
+
       color: #8C777B;
     }
 
@@ -663,6 +731,7 @@
       margin-top: 12px;
 
       width: 100%;
+
       height: 42px;
 
       border-radius: 11px;
@@ -674,6 +743,7 @@
       color: #A66D78;
 
       font-size: .76rem;
+
       font-weight: 700;
     }
 
@@ -685,11 +755,13 @@
       border-radius: 13px;
 
       background: #FFF4DC;
+
       border: 1px solid #F3D7A5;
 
       text-align: left;
 
       font-size: .73rem;
+
       line-height: 1.55;
 
       color: #896F4A;
@@ -701,12 +773,15 @@
 
     .benefits {
       display: flex;
+
       justify-content: center;
+
       gap: 14px;
 
       margin-top: 4px;
 
       font-size: .68rem;
+
       color: #A18388;
     }
 
@@ -716,6 +791,7 @@
       padding: 5px 0 10px;
 
       font-size: .66rem;
+
       line-height: 1.6;
 
       color: #B0969B;
@@ -726,6 +802,7 @@
     ========================= */
 
     @keyframes floaty {
+
       0%,100% {
         transform: translateY(0);
       }
@@ -733,9 +810,11 @@
       50% {
         transform: translateY(-7px);
       }
+
     }
 
     @keyframes pulseSoft {
+
       0%,100% {
         transform: scale(1);
       }
@@ -743,9 +822,11 @@
       50% {
         transform: scale(1.015);
       }
+
     }
 
     @keyframes fadeInUp {
+
       from {
         opacity: 0;
         transform: translateY(12px);
@@ -755,9 +836,11 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
     @keyframes pageIn {
+
       from {
         opacity: 0;
         transform: translateY(7px);
@@ -767,6 +850,7 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
     /* =========================
@@ -788,6 +872,7 @@
       .result {
         padding-top: 22px;
       }
+
     }
 
     @media (max-width: 380px) {
@@ -806,14 +891,17 @@
       .title {
         font-size: 1.48rem;
       }
+
     }
 
   </style>
 </head>
 
+
 <body>
 
   <!-- ORNAMEN -->
+
   <div class="ornament d1">🌸</div>
   <div class="ornament d2">✨</div>
   <div class="ornament d3">🎀</div>
@@ -823,6 +911,7 @@
   <main class="page">
 
     <div class="stage">
+
 
       <!-- =========================
            LOGO
@@ -844,7 +933,6 @@
 
       <!-- =========================
            PAGE 1
-           BERANDA
       ========================= -->
 
       <section
@@ -925,7 +1013,6 @@
 
       <!-- =========================
            PAGE 2
-           HASIL PESANAN
       ========================= -->
 
       <section
@@ -933,6 +1020,7 @@
         class="screen">
 
         <div class="result">
+
 
           <div class="result-header">
 
@@ -947,8 +1035,7 @@
           </div>
 
 
-          <div
-            class="customer-name">
+          <div class="customer-name">
 
             <div class="customer-name-label">
               Nama Pemesan
@@ -1061,6 +1148,7 @@
 
           </div>
 
+
         </div>
 
       </section>
@@ -1068,7 +1156,6 @@
 
       <!-- =========================
            PAGE 3
-           PEMBAYARAN
       ========================= -->
 
       <section
@@ -1076,6 +1163,7 @@
         class="screen">
 
         <div class="result payment-card">
+
 
           <img
             class="bca-logo"
@@ -1086,6 +1174,7 @@
           <h2 class="payment-title">
             Instruksi Pembayaran
           </h2>
+
 
           <p class="payment-subtitle">
             Silakan transfer sesuai total pesanan
@@ -1159,6 +1248,7 @@
 
           </div>
 
+
         </div>
 
       </section>
@@ -1180,10 +1270,13 @@
       <div class="footer">
 
         © 2026 SEMURA · Since 2022
+
         <br>
+
         Baby & Mom
 
       </div>
+
 
     </div>
 
@@ -1192,61 +1285,41 @@
 
   <script>
 
-    /*
-    ============================================================
-      SEMURA GITHUB VERSION
 
-      UNTUK SEKARANG:
-      Tampilan sudah siap.
+    /* =====================================================
+       SEMURA API
+       ===================================================== */
 
-      NANTI:
-      APPS SCRIPT API URL akan dimasukkan di sini.
-    ============================================================
-    */
+    const API_URL =
+      "https://script.google.com/macros/s/AKfycbxJEGaU5d7lISyZEcQCwvR-n7mUQK6yZuehFtjgeCObl2Uq_KvDdv2WNIUo1ZoSeLqIjg/exec";
 
 
-    /*
-      ==========================================================
-      GANTI_NANTI
+    /* =====================================================
+       DATA BCA
+       ===================================================== */
 
-      Setelah backend API siap, kita isi URL Apps Script di sini.
+    const NO_REKENING_BCA =
+      "0154739978";
 
-      Contoh:
+    const NAMA_PEMILIK_BCA =
+      "a.n. Natasya A";
 
-      const API_URL =
-      "https://script.google.com/macros/s/XXXXXXXXXXXX/exec";
-
-      JANGAN diisi dengan URL Apps Script lama kalau belum
-      kita ubah Code.gs menjadi API.
-      ==========================================================
-    */
-
-    const API_URL = "";
+    const NO_WA_ADMIN =
+      "6282115465899";
 
 
-    /*
-      DATA BCA
-    */
-
-    const NO_REKENING_BCA = "0154739978";
-
-    const NAMA_PEMILIK_BCA = "a.n. Natasya A";
-
-    const NO_WA_ADMIN = "6282115465899";
-
-
-    /*
-      DATA SEMENTARA
-    */
+    /* =====================================================
+       DATA ORDER
+       ===================================================== */
 
     let currentOrderData = null;
 
+    let currentWhatsappMessage = "";
 
-    /*
-      ==========================================================
-      SCREEN
-      ==========================================================
-    */
+
+    /* =====================================================
+       SCREEN
+       ===================================================== */
 
     function showScreen(screenId) {
 
@@ -1278,25 +1351,28 @@
     }
 
 
-    /*
-      ==========================================================
-      NORMALISASI NOMOR
-      ==========================================================
-    */
+    /* =====================================================
+       NORMALISASI NOMOR
+       ===================================================== */
 
     function normalisasiNomor(nomor) {
 
       let value =
-        String(nomor || "").trim();
+        String(nomor || "")
+          .trim();
+
 
       value =
         value.replace(/\D/g, "");
 
 
-      if (value.indexOf("62") === 0) {
+      if (
+        value.indexOf("62") === 0
+      ) {
 
         value =
-          "0" + value.substring(2);
+          "0" +
+          value.substring(2);
 
       }
 
@@ -1306,13 +1382,11 @@
     }
 
 
-    /*
-      ==========================================================
-      CEK PESANAN
-      ==========================================================
-    */
+    /* =====================================================
+       CEK PESANAN
+       ===================================================== */
 
-    async function cekPesanan() {
+    function cekPesanan() {
 
       const kode =
         document
@@ -1357,95 +1431,155 @@
       }
 
 
-      /*
-        API BELUM DIPASANG
-
-        Kita sengaja hentikan di sini supaya
-        GitHub tidak mencoba request kosong.
-      */
-
-      if (!API_URL) {
-
-        error.textContent =
-          "Tampilan SEMURA sudah siap. Koneksi database sedang disiapkan.";
-
-        error.classList.add("show");
-
-        return;
-
-      }
-
-
       loading.classList.add("show");
+
 
       button.disabled = true;
 
       button.style.opacity = ".7";
 
 
-      try {
+      /*
+       * CALLBACK UNIK
+       */
 
-        const url =
-          API_URL +
-          "?action=cariPesanan" +
-          "&kodeGrup=" +
-          encodeURIComponent(kode) +
-          "&nomorWhatsapp=" +
-          encodeURIComponent(whatsapp);
+      const callbackName =
+        "semuraCallback_" +
+        Date.now();
 
 
-        const response =
-          await fetch(url, {
-            method: "GET"
-          });
+      let script = null;
 
 
-        if (!response.ok) {
+      /*
+       * CALLBACK JSONP
+       */
 
-          throw new Error(
-            "Server tidak merespons."
-          );
+      window[callbackName] =
+        function(response) {
 
-        }
+          try {
+
+            prosesHasilPesanan(
+              response
+            );
+
+          }
+
+          catch (err) {
+
+            console.error(err);
+
+            error.textContent =
+              "Data pesanan gagal diproses.";
+
+            error.classList.add("show");
+
+          }
+
+          finally {
+
+            loading.classList.remove("show");
+
+            button.disabled = false;
+
+            button.style.opacity = "1";
 
 
-        const data =
-          await response.json();
+            delete window[callbackName];
 
 
-        prosesHasilPesanan(data);
+            if (
+              script &&
+              script.parentNode
+            ) {
 
-      }
+              script.parentNode
+                .removeChild(script);
 
-      catch (err) {
+            }
 
-        console.error(err);
+          }
 
-        error.textContent =
-          "Terjadi masalah saat mengambil data pesanan.";
+        };
 
-        error.classList.add("show");
 
-      }
+      /*
+       * URL API
+       */
 
-      finally {
+      const url =
+        API_URL +
 
-        loading.classList.remove("show");
+        "?action=cariPesanan" +
 
-        button.disabled = false;
+        "&kodeGrup=" +
+        encodeURIComponent(kode) +
 
-        button.style.opacity = "1";
+        "&nomorWhatsapp=" +
+        encodeURIComponent(whatsapp) +
 
-      }
+        "&callback=" +
+        encodeURIComponent(callbackName);
+
+
+      /*
+       * BUAT SCRIPT JSONP
+       */
+
+      script =
+        document.createElement("script");
+
+
+      script.src = url;
+
+
+      /*
+       * ERROR
+       */
+
+      script.onerror =
+        function() {
+
+          loading.classList.remove("show");
+
+          button.disabled = false;
+
+          button.style.opacity = "1";
+
+
+          error.textContent =
+            "Tidak dapat terhubung ke server SEMURA.";
+
+
+          error.classList.add("show");
+
+
+          delete window[callbackName];
+
+
+          if (
+            script &&
+            script.parentNode
+          ) {
+
+            script.parentNode
+              .removeChild(script);
+
+          }
+
+        };
+
+
+      document.body
+        .appendChild(script);
 
     }
 
 
-    /*
-      ==========================================================
-      PROSES HASIL
-      ==========================================================
-    */
+    /* =====================================================
+       PROSES HASIL PESANAN
+       ===================================================== */
 
     function prosesHasilPesanan(response) {
 
@@ -1453,14 +1587,22 @@
         document.getElementById("error");
 
 
-      if (!response || !response.success) {
+      if (
+        !response ||
+        !response.success
+      ) {
 
         error.textContent =
-          response && response.message
+          response &&
+          response.message
+
             ? response.message
+
             : "Pesanan tidak ditemukan.";
 
+
         error.classList.add("show");
+
 
         return;
 
@@ -1475,14 +1617,19 @@
         response.data[0];
 
 
-      document.getElementById("customerName")
+      /*
+       * NAMA
+       */
+
+      document
+        .getElementById("customerName")
         .textContent =
         first.namaPemesan || "-";
 
 
       /*
-        ORDER LIST
-      */
+       * ORDER LIST
+       */
 
       const orderList =
         document.getElementById("orderList");
@@ -1491,52 +1638,56 @@
       orderList.innerHTML = "";
 
 
-      response.data.forEach(function(item) {
+      response.data.forEach(
+        function(item) {
 
-        const div =
-          document.createElement("div");
-
-
-        div.className =
-          "order-item";
+          const div =
+            document.createElement("div");
 
 
-        div.innerHTML = `
-
-          <div class="book-title">
-            ${escapeHtml(item.judulBuku || "-")}
-          </div>
-
-          <div class="item-meta">
-
-            <span>
-              Qty: ${escapeHtml(item.qty || "0")}
-            </span>
-
-            <span>
-              ${escapeHtml(item.harga || "Rp0")}
-            </span>
-
-          </div>
-
-          <div class="item-total">
-            ${escapeHtml(item.totalHarga || "Rp0")}
-          </div>
-
-        `;
+          div.className =
+            "order-item";
 
 
-        orderList.appendChild(div);
+          div.innerHTML = `
 
-      });
+            <div class="book-title">
+              ${escapeHtml(item.judulBuku || "-")}
+            </div>
+
+            <div class="item-meta">
+
+              <span>
+                Qty: ${escapeHtml(item.qty || "0")}
+              </span>
+
+              <span>
+                ${escapeHtml(item.harga || "Rp0")}
+              </span>
+
+            </div>
+
+            <div class="item-total">
+              ${escapeHtml(item.totalHarga || "Rp0")}
+            </div>
+
+          `;
+
+
+          orderList.appendChild(div);
+
+        }
+      );
 
 
       /*
-        TOTAL
-      */
+       * TOTAL
+       */
 
       let totalSemua =
-        Number(response.totalSemua || 0);
+        Number(
+          response.totalSemua || 0
+        );
 
 
       if (!totalSemua) {
@@ -1545,11 +1696,16 @@
           response.data.reduce(
             function(total, item) {
 
-              return total +
+              const angka =
                 parseInt(
-                  String(item.totalHarga || "")
-                    .replace(/[^\d]/g, "")
+                  String(
+                    item.totalHarga || ""
+                  )
+                  .replace(/[^\d]/g, "")
                 ) || 0;
+
+
+              return total + angka;
 
             },
             0
@@ -1558,25 +1714,34 @@
       }
 
 
-      document.getElementById("grandTotal")
+      document
+        .getElementById("grandTotal")
         .textContent =
-        formatRupiah(totalSemua);
+        formatRupiah(
+          totalSemua
+        );
 
 
       /*
-        PAYMENT STATUS
-      */
+       * PAYMENT STATUS
+       */
 
       const paymentStatus =
-        document.getElementById("paymentStatus");
+        document.getElementById(
+          "paymentStatus"
+        );
 
 
       const paymentStatusText =
-        document.getElementById("paymentStatusText");
+        document.getElementById(
+          "paymentStatusText"
+        );
 
 
       const paymentStatusIcon =
-        document.getElementById("paymentStatusIcon");
+        document.getElementById(
+          "paymentStatusIcon"
+        );
 
 
       const paymentStatusDescription =
@@ -1604,12 +1769,14 @@
 
 
             return [
+
               "done",
               "lunas",
               "selesai",
               "sudah bayar",
               "sudah dibayar",
               "done payment"
+
             ].includes(status);
 
           }
@@ -1619,10 +1786,13 @@
       if (semuaSudahLunas) {
 
         paymentStatus
-          .classList.remove("unpaid");
+          .classList
+          .remove("unpaid");
+
 
         paymentStatus
-          .classList.add("done");
+          .classList
+          .add("done");
 
 
         paymentStatusIcon.textContent =
@@ -1645,10 +1815,13 @@
       else {
 
         paymentStatus
-          .classList.remove("done");
+          .classList
+          .remove("done");
+
 
         paymentStatus
-          .classList.add("unpaid");
+          .classList
+          .add("unpaid");
 
 
         paymentStatusIcon.textContent =
@@ -1670,16 +1843,17 @@
 
 
       /*
-        SHIPPING
-      */
+       * SHIPPING
+       */
 
       const shippingStatuses =
-        response.data
-          .map(function(item) {
+        response.data.map(
+          function(item) {
 
             return item.statusPengiriman || "-";
 
-          });
+          }
+        );
 
 
       const shippingDone =
@@ -1693,9 +1867,11 @@
 
 
             return [
+
               "done",
               "terkirim",
               "selesai"
+
             ].includes(s);
 
           }
@@ -1708,22 +1884,33 @@
         );
 
 
-      shippingStatus.textContent =
-        shippingDone
-          ? "Status Pengiriman: DONE / TERKIRIM ✓"
-          : "Status Pengiriman: " +
-            shippingStatuses[0];
+      if (shippingDone) {
+
+        shippingStatus.textContent =
+          "Status Pengiriman: DONE / TERKIRIM ✓";
+
+      }
+
+      else {
+
+        shippingStatus.textContent =
+          "Status Pengiriman: " +
+          shippingStatuses[0];
+
+      }
 
 
       /*
-        WHATSAPP MESSAGE
-      */
+       * WHATSAPP MESSAGE
+       */
 
       const totalText =
-        formatRupiah(totalSemua);
+        formatRupiah(
+          totalSemua
+        );
 
 
-      window.currentWhatsAppMessage =
+      currentWhatsappMessage =
 
         "Halo Admin SEMURA, saya mau konfirmasi pembayaran pesanan:\n\n" +
 
@@ -1748,16 +1935,20 @@
         "Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
 
 
-      showScreen("resultScreen");
+      /*
+       * TAMPILKAN HASIL
+       */
+
+      showScreen(
+        "resultScreen"
+      );
 
     }
 
 
-    /*
-      ==========================================================
-      DATA INPUT AMAN
-      ==========================================================
-    */
+    /* =====================================================
+       INPUT AMAN
+       ===================================================== */
 
     function kodeGrupAman() {
 
@@ -1780,11 +1971,9 @@
     }
 
 
-    /*
-      ==========================================================
-      FORMAT RUPIAH
-      ==========================================================
-    */
+    /* =====================================================
+       FORMAT RUPIAH
+       ===================================================== */
 
     function formatRupiah(angka) {
 
@@ -1800,45 +1989,66 @@
     }
 
 
-    /*
-      ==========================================================
-      COPY REKENING
-      ==========================================================
-    */
+    /* =====================================================
+       COPY REKENING
+       ===================================================== */
 
     function salinRekening() {
 
-      navigator.clipboard
-        .writeText(NO_REKENING_BCA)
-        .then(function() {
+      if (
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+      ) {
 
-          alert(
-            "Nomor rekening berhasil disalin 🤍"
-          );
-
-        })
-        .catch(function() {
-
-          alert(
-            "Nomor rekening: " +
+        navigator.clipboard
+          .writeText(
             NO_REKENING_BCA
+          )
+
+          .then(
+            function() {
+
+              alert(
+                "Nomor rekening berhasil disalin 🤍"
+              );
+
+            }
+          )
+
+          .catch(
+            function() {
+
+              alert(
+                "Nomor rekening: " +
+                NO_REKENING_BCA
+              );
+
+            }
           );
 
-        });
+      }
+
+      else {
+
+        alert(
+          "Nomor rekening: " +
+          NO_REKENING_BCA
+        );
+
+      }
 
     }
 
 
-    /*
-      ==========================================================
-      WHATSAPP
-      ==========================================================
-    */
+    /* =====================================================
+       WHATSAPP
+       ===================================================== */
 
     function konfirmasiWhatsApp() {
 
       const message =
-        window.currentWhatsAppMessage ||
+        currentWhatsappMessage ||
+
         "Halo Admin SEMURA, saya ingin konfirmasi pembayaran.";
 
 
@@ -1846,7 +2056,9 @@
         "https://wa.me/" +
         NO_WA_ADMIN +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+          message
+        );
 
 
       window.open(
@@ -1857,23 +2069,40 @@
     }
 
 
-    /*
-      ==========================================================
-      ESCAPE HTML
-      ==========================================================
-    */
+    /* =====================================================
+       ESCAPE HTML
+       ===================================================== */
 
     function escapeHtml(value) {
 
       return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
-
 
   </script>
 
