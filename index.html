@@ -11,628 +11,712 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;min-height:100%;margin:0;font-size:16px;overflow-x:hidden}
-body{
-font-family:"Plus Jakarta Sans",sans-serif;
-color:#6F5B5F;
-background:
-radial-gradient(circle at 15% 10%,rgba(232,199,205,.55),transparent 30%),
-radial-gradient(circle at 90% 20%,rgba(255,255,255,.95),transparent 35%),
-linear-gradient(180deg,#FFF9F7,#FDF3F4);
-background-attachment:fixed
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent
 }
-button,input{font-family:inherit}
-button{cursor:pointer}
+
+html,body{
+  width:100%;
+  min-height:100%;
+  margin:0;
+  font-size:16px;
+  overflow-x:hidden
+}
+
+body{
+  font-family:"Plus Jakarta Sans",sans-serif;
+  color:#6F5B5F;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(232,199,205,.55),transparent 30%),
+    radial-gradient(circle at 90% 20%,rgba(255,255,255,.95),transparent 35%),
+    linear-gradient(180deg,#FFF9F7,#FDF3F4);
+  background-attachment:fixed
+}
+
+button,input{
+  font-family:inherit
+}
+
+button{
+  cursor:pointer
+}
 
 .page{
-min-height:100dvh;
-padding:24px 16px;
-display:flex;
-justify-content:center
+  min-height:100dvh;
+  padding:24px 16px;
+  display:flex;
+  justify-content:center
 }
 
 .stage{
-width:100%;
-max-width:420px;
-display:flex;
-flex-direction:column;
-gap:16px;
-animation:fadeInUp .7s ease both
+  width:100%;
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  animation:fadeInUp .7s ease both
 }
 
 .ornament{
-position:fixed;
-pointer-events:none;
-z-index:0;
-user-select:none
+  position:fixed;
+  pointer-events:none;
+  z-index:0;
+  user-select:none
 }
 
-.d1{top:7%;left:4%;animation:floaty 4s ease-in-out infinite}
-.d2{top:14%;right:5%;animation:floaty 5s ease-in-out infinite}
-.d3{bottom:13%;left:6%;animation:floaty 4.5s ease-in-out infinite}
-.d4{bottom:8%;right:7%;animation:floaty 5.5s ease-in-out infinite}
+.d1{
+  top:7%;
+  left:4%;
+  animation:floaty 4s ease-in-out infinite
+}
+
+.d2{
+  top:14%;
+  right:5%;
+  animation:floaty 5s ease-in-out infinite
+}
+
+.d3{
+  bottom:13%;
+  left:6%;
+  animation:floaty 4.5s ease-in-out infinite
+}
+
+.d4{
+  bottom:8%;
+  right:7%;
+  animation:floaty 5.5s ease-in-out infinite
+}
 
 .logo-wrap{
-text-align:center;
-position:relative;
-z-index:1;
-padding-top:5px
+  text-align:center;
+  position:relative;
+  z-index:1;
+  padding-top:5px
 }
 
 .logo{
-width:180px;
-max-width:60%;
-height:auto;
-display:inline-block;
-animation:pulseSoft 4s ease-in-out infinite;
-filter:drop-shadow(0 10px 20px rgba(185,120,134,.18))
+  width:180px;
+  max-width:60%;
+  height:auto;
+  display:inline-block;
+  animation:pulseSoft 4s ease-in-out infinite;
+  filter:drop-shadow(0 10px 20px rgba(185,120,134,.18))
 }
 
 .screen{
-display:none;
-position:relative;
-z-index:1
+  display:none;
+  position:relative;
+  z-index:1
 }
 
 .screen.active{
-display:block;
-animation:pageIn .35s ease both
+  display:block;
+  animation:pageIn .35s ease both
 }
 
-.order-card,.result{
-position:relative;
-overflow:hidden;
-background:rgba(255,255,255,.94);
-border:1px solid rgba(232,199,205,.6);
-border-radius:22px;
-padding:26px 21px 22px;
-box-shadow:
-0 18px 45px rgba(111,91,95,.09),
-0 5px 15px rgba(185,120,134,.06)
+.order-card,
+.result{
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(232,199,205,.6);
+  border-radius:22px;
+  padding:26px 21px 22px;
+  box-shadow:
+    0 18px 45px rgba(111,91,95,.09),
+    0 5px 15px rgba(185,120,134,.06)
 }
 
-.order-card:before,.result:before{
-content:"";
-position:absolute;
-top:0;
-left:14%;
-right:14%;
-height:3px;
-background:linear-gradient(
-90deg,
-transparent,
-#E8C7CD,
-#B97886,
-#E8C7CD,
-transparent
-);
-border-radius:0 0 10px 10px
+.order-card:before,
+.result:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:14%;
+  right:14%;
+  height:3px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #E8C7CD,
+    #B97886,
+    #E8C7CD,
+    transparent
+  );
+  border-radius:0 0 10px 10px
 }
 
 .title{
-margin:0;
-text-align:center;
-font-family:"Fredoka",sans-serif;
-font-size:1.62rem;
-font-weight:500;
-color:#6F5B5F
+  margin:0;
+  text-align:center;
+  font-family:"Fredoka",sans-serif;
+  font-size:1.62rem;
+  font-weight:500;
+  color:#6F5B5F
 }
 
 .subtitle{
-margin:7px 0 22px;
-text-align:center;
-font-size:.82rem;
-line-height:1.55;
-color:#A18388
+  margin:7px 0 22px;
+  text-align:center;
+  font-size:.82rem;
+  line-height:1.55;
+  color:#A18388
 }
 
-.field{margin-bottom:14px}
+.field{
+  margin-bottom:14px
+}
 
 .field label{
-display:block;
-margin-bottom:7px;
-font-size:.78rem;
-font-weight:600;
-color:#80686D
+  display:block;
+  margin-bottom:7px;
+  font-size:.78rem;
+  font-weight:600;
+  color:#80686D
 }
 
 .field input{
-width:100%;
-height:49px;
-padding:0 14px;
-border:1px solid #E7D4D7;
-border-radius:13px;
-outline:none;
-background:#FFFDFC;
-color:#6F5B5F;
-font-size:.86rem;
-transition:.2s
+  width:100%;
+  height:49px;
+  padding:0 14px;
+  border:1px solid #E7D4D7;
+  border-radius:13px;
+  outline:none;
+  background:#FFFDFC;
+  color:#6F5B5F;
+  font-size:.86rem;
+  transition:.2s
 }
 
-.field input::placeholder{color:#BCA8AC}
+.field input::placeholder{
+  color:#BCA8AC
+}
 
 .field input:focus{
-border-color:#C98A97;
-box-shadow:0 0 0 4px rgba(201,138,151,.1);
-transform:translateY(-1px)
+  border-color:#C98A97;
+  box-shadow:0 0 0 4px rgba(201,138,151,.1);
+  transform:translateY(-1px)
 }
 
 .btn{
-width:100%;
-height:48px;
-margin-top:4px;
-border:0;
-border-radius:13px;
-color:#fff;
-font-size:.86rem;
-font-weight:700;
-background:linear-gradient(135deg,#CD8998,#B97686);
-box-shadow:0 10px 20px rgba(185,120,134,.22);
-transition:.2s
+  width:100%;
+  height:48px;
+  margin-top:4px;
+  border:0;
+  border-radius:13px;
+  color:#fff;
+  font-size:.86rem;
+  font-weight:700;
+  background:linear-gradient(135deg,#CD8998,#B97686);
+  box-shadow:0 10px 20px rgba(185,120,134,.22);
+  transition:.2s
 }
 
-.btn:active{transform:scale(.98)}
-.btn:hover{filter:brightness(1.03)}
-.btn:disabled{cursor:wait}
-
-/* WHATSAPP */
-
-.whatsapp-btn{
-background:#25D366;
-color:#fff;
-box-shadow:0 10px 20px rgba(37,211,102,.20);
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px
+.btn:active{
+  transform:scale(.98)
 }
 
-.whatsapp-btn:hover{filter:brightness(1.04)}
-
-.wa-icon{
-width:18px;
-height:18px;
-flex-shrink:0
+.btn:disabled{
+  cursor:wait
 }
 
 .btn-secondary{
-background:#FFF4F5;
-color:#A66D78;
-border:1px solid #E8C7CD;
-box-shadow:none
+  background:#FFF4F5;
+  color:#A66D78;
+  border:1px solid #E8C7CD;
+  box-shadow:none
 }
-
-/* LOADING */
 
 .loading{
-display:none;
-margin-top:14px;
-text-align:center;
-font-size:.78rem;
-color:#A18388;
-align-items:center;
-justify-content:center;
-gap:8px
+  display:none;
+  margin-top:14px;
+  text-align:center;
+  font-size:.78rem;
+  color:#A18388;
+  align-items:center;
+  justify-content:center;
+  gap:8px
 }
 
-.loading.show{display:flex}
+.loading.show{
+  display:flex
+}
 
 .spinner{
-width:15px;
-height:15px;
-border:2px solid #E8C7CD;
-border-top-color:#B97886;
-border-radius:50%;
-animation:spin .7s linear infinite;
-flex-shrink:0
+  width:15px;
+  height:15px;
+  border:2px solid #E8C7CD;
+  border-top-color:#B97886;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  flex-shrink:0
 }
 
 .error{
-display:none;
-margin-top:14px;
-padding:12px 13px;
-border-radius:12px;
-background:#FFF0F1;
-border:1px solid #F0CDD2;
-text-align:center;
-font-size:.76rem;
-line-height:1.5;
-color:#A55F6B
+  display:none;
+  margin-top:14px;
+  padding:12px 13px;
+  border-radius:12px;
+  background:#FFF0F1;
+  border:1px solid #F0CDD2;
+  text-align:center;
+  font-size:.76rem;
+  line-height:1.5;
+  color:#A55F6B
 }
 
-.error.show{display:block}
+.error.show{
+  display:block
+}
 
 /* RESULT */
 
 .result-header{
-text-align:center;
-margin-bottom:18px
+  text-align:center;
+  margin-bottom:18px
 }
 
 .result-header h2{
-margin:0;
-font-family:"Fredoka",sans-serif;
-font-size:1.4rem;
-font-weight:500;
-color:#6F5B5F
+  margin:0;
+  font-family:"Fredoka",sans-serif;
+  font-size:1.4rem;
+  font-weight:500;
+  color:#6F5B5F
 }
 
 .result-header p{
-margin:5px 0 0;
-font-size:.78rem;
-color:#A18388
+  margin:6px 0 0;
+  font-size:.95rem;
+  font-weight:700;
+  color:#80686D
 }
 
-/* CARD BUKU */
+/* BOOK CARD */
 
 .order-item{
-margin-bottom:12px;
-padding:15px;
-border-radius:17px;
-background:#FFFDFD;
-border:1px solid #F0E0E3;
-box-shadow:0 7px 18px rgba(111,91,95,.045)
+  margin-bottom:12px;
+  padding:15px;
+  border-radius:17px;
+  background:#FFFDFD;
+  border:1px solid #F0E0E3;
+  box-shadow:0 7px 18px rgba(111,91,95,.045)
 }
 
 .book-title{
-font-family:"Fredoka",sans-serif;
-font-size:.98rem;
-font-weight:500;
-line-height:1.35;
-color:#6F5B5F
+  font-family:"Fredoka",sans-serif;
+  font-size:.98rem;
+  font-weight:500;
+  line-height:1.35;
+  color:#6F5B5F
 }
 
-.qty-price-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-margin-top:6px
+.book-info-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:8px
 }
 
-.item-meta{
-margin-top:0;
-font-size:.72rem;
-color:#9A8186
+.book-qty{
+  font-size:.74rem;
+  color:#8E777C;
+  line-height:1.4
 }
 
-.book-price{
-text-align:right;
-font-size:.82rem;
-font-weight:700;
-color:#A66D78;
-white-space:nowrap
+.book-subtotal{
+  font-family:"Fredoka",sans-serif;
+  font-size:.95rem;
+  font-weight:600;
+  color:#A66D78;
+  white-space:nowrap
 }
 
 .item-divider{
-height:1px;
-background:#F1E4E6;
-margin:12px 0 9px
+  height:1px;
+  background:#F1E4E6;
+  margin:12px 0 9px
 }
 
 .item-status-row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-margin-top:7px;
-font-size:.7rem;
-color:#8E777C
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:7px;
+  font-size:.7rem;
+  color:#8E777C
 }
 
 .status-badge{
-padding:5px 8px;
-border-radius:999px;
-font-size:.62rem;
-font-weight:700;
-white-space:nowrap
+  padding:5px 8px;
+  border-radius:999px;
+  font-size:.62rem;
+  font-weight:700;
+  white-space:nowrap
 }
 
 .payment-badge.unpaid{
-background:#FFF4DC;
-color:#C77B00
+  background:#FFF4DC;
+  color:#C77B00
 }
 
 .payment-badge.done{
-background:#F0F9F2;
-color:#2E7D32
+  background:#F0F9F2;
+  color:#2E7D32
 }
 
 .shipping-badge{
-background:#F8F3F4;
-color:#806A70
+  background:#F8F3F4;
+  color:#806A70
 }
 
 /* TOTAL */
 
 .grand-total{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:14px;
-padding:15px;
-border-radius:15px;
-background:#FFF4F5;
-border:1px solid #EBCFD4
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:14px;
+  padding:15px;
+  border-radius:15px;
+  background:#FFF4F5;
+  border:1px solid #EBCFD4
 }
 
-.grand-total span:first-child{
-font-size:.78rem;
-font-weight:700;
-color:#6F5B5F
+.grand-total span:first-child,
+.grand-total span:last-child{
+  font-size:1rem;
+  font-weight:700;
+  color:#6F5B5F
 }
 
 .grand-total span:last-child{
-font-family:"Fredoka",sans-serif;
-font-size:1.15rem;
-font-weight:500;
-color:#A66D78
+  color:#A66D78;
+  white-space:nowrap
 }
 
-/* STATUS PEMBAYARAN */
+/* OVERALL PAYMENT */
 
 .overall-payment{
-display:flex;
-align-items:center;
-gap:12px;
-margin-top:12px;
-padding:14px;
-border-radius:16px;
-border:1px solid
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:12px;
+  padding:14px;
+  border-radius:16px;
+  border:1px solid
 }
 
 .overall-payment.unpaid{
-background:#FFF4DC;
-border-color:#F3D7A5
+  background:#FFF4DC;
+  border-color:#F3D7A5
 }
 
 .overall-payment.done{
-background:#F0F9F2;
-border-color:#CDE8D2
+  background:#F0F9F2;
+  border-color:#CDE8D2
 }
 
 .payment-status-icon{
-flex:0 0 40px;
-width:40px;
-height:40px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-font-size:1.05rem
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:1.05rem
 }
 
 .unpaid .payment-status-icon{
-background:#FFE7B5
+  background:#FFE7B5
 }
 
 .done .payment-status-icon{
-background:#D9F0DE;
-color:#2E7D32;
-font-weight:700
+  background:#D9F0DE;
+  color:#2E7D32;
+  font-weight:700
 }
 
 .payment-status-content{
-min-width:0
+  min-width:0
 }
 
 .payment-status-title{
-font-size:.68rem;
-color:#9A8186;
-margin-bottom:2px
+  font-size:.68rem;
+  color:#9A8186;
+  margin-bottom:2px
 }
 
 .payment-done-text{
-font-size:.86rem;
-font-weight:700
+  font-size:.86rem;
+  font-weight:700
 }
 
 .unpaid .payment-done-text{
-color:#C77B00
+  color:#C77B00
 }
 
 .done .payment-done-text{
-color:#2E7D32
+  color:#2E7D32
 }
 
 .payment-status-description{
-margin-top:3px;
-font-size:.7rem;
-line-height:1.4;
-color:#8C777B
+  margin-top:3px;
+  font-size:.7rem;
+  line-height:1.4;
+  color:#8C777B
 }
 
-/* PAYMENT */
+/* PAYMENT PAGE */
 
-.payment-card{text-align:center}
+.payment-card{
+  text-align:center
+}
 
 .payment-title{
-margin:0;
-font-family:"Fredoka",sans-serif;
-font-size:1.45rem;
-font-weight:500;
-color:#6F5B5F
+  margin:0;
+  font-family:"Fredoka",sans-serif;
+  font-size:1.45rem;
+  font-weight:500;
+  color:#6F5B5F
 }
 
 .payment-subtitle{
-margin:7px 0 20px;
-font-size:.78rem;
-line-height:1.55;
-color:#A18388
+  margin:7px 0 18px;
+  font-size:.78rem;
+  line-height:1.55;
+  color:#A18388
 }
 
 .payment-total{
-margin:0 0 18px;
-padding:15px;
-border-radius:15px;
-background:#FFF4F5;
-border:1px solid #EBCFD4;
-text-align:center
+  margin-bottom:14px;
+  padding:13px 15px;
+  border-radius:15px;
+  background:#FFF4F5;
+  border:1px solid #EBCFD4;
+  text-align:left
 }
 
-.payment-total span{
-display:block;
-font-size:.72rem;
-font-weight:600;
-color:#8E7278;
-margin-bottom:4px
+.payment-total > span{
+  display:block;
+  font-size:.7rem;
+  color:#A18388
 }
 
 .payment-total-row{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:3px
 }
 
-.payment-total strong{
-font-family:"Fredoka",sans-serif;
-font-size:1.35rem;
-font-weight:600;
-color:#A66D78
+.payment-total-row strong{
+  font-family:"Fredoka",sans-serif;
+  font-size:1.35rem;
+  font-weight:600;
+  color:#A66D78
 }
 
 .copy-total-btn{
-width:30px;
-height:30px;
-padding:0;
-border-radius:9px;
-background:#FFF;
-border:1px solid #E8C7CD;
-color:#A66D78;
-font-size:.9rem;
-cursor:pointer
+  width:32px;
+  height:32px;
+  flex-shrink:0;
+  border:1px solid #E4C8CD;
+  border-radius:9px;
+  background:#fff;
+  color:#A66D78;
+  font-size:.85rem;
+  display:flex;
+  align-items:center;
+  justify-content:center
 }
 
 .copy-total-btn.copied{
-background:#F0F9F2;
-border-color:#CDE8D2;
-color:#2E7D32
+  background:#F0F9F2;
+  border-color:#CDE8D2;
+  color:#2E7D32
 }
 
-/* BCA */
-
 .bank-box{
-padding:17px;
-border-radius:17px;
-background:#FFF8F9;
-border:1px solid #EEDADD
+  padding:17px;
+  border-radius:17px;
+  background:#FFF8F9;
+  border:1px solid #EEDADD
 }
 
 .bca-logo{
-width:85px;
-max-width:40%;
-display:block;
-margin:0 auto 10px
+  width:85px;
+  max-width:40%;
+  display:block;
+  margin:0 auto 10px
 }
 
 .bank-label{
-font-size:.7rem;
-color:#A18388
+  font-size:.7rem;
+  color:#A18388
 }
 
 .bank-number{
-margin-top:5px;
-font-family:"Fredoka",sans-serif;
-font-size:1.45rem;
-letter-spacing:1px;
-color:#6F5B5F
+  margin-top:5px;
+  font-family:"Fredoka",sans-serif;
+  font-size:1.45rem;
+  letter-spacing:1px;
+  color:#6F5B5F
 }
 
 .bank-owner{
-margin-top:4px;
-font-size:.76rem;
-color:#8C777B
+  margin-top:4px;
+  font-size:.76rem;
+  color:#8C777B
 }
 
 .copy-btn{
-margin:10px auto 0;
-display:block;
-width:auto;
-min-width:170px;
-height:36px;
-padding:0 16px;
-border-radius:10px;
-border:1px solid #E4C8CD;
-background:#fff;
-color:#A66D78;
-font-size:.68rem;
-font-weight:700;
-white-space:nowrap
+  margin:10px auto 0;
+  display:block;
+  width:auto;
+  min-width:170px;
+  height:36px;
+  padding:0 16px;
+  border-radius:10px;
+  border:1px solid #E4C8CD;
+  background:#fff;
+  color:#A66D78;
+  font-size:.68rem;
+  font-weight:700;
+  white-space:nowrap
 }
 
 .copy-btn.copied{
-background:#F0F9F2;
-border-color:#CDE8D2;
-color:#2E7D32
+  background:#F0F9F2;
+  border-color:#CDE8D2;
+  color:#2E7D32
 }
 
 .payment-note{
-margin-top:15px;
-padding:13px;
-border-radius:13px;
-background:#FFF4DC;
-border:1px solid #F3D7A5;
-text-align:center;
-font-size:.73rem;
-line-height:1.55;
-color:#896F4A
+  margin-top:15px;
+  padding:13px;
+  border-radius:13px;
+  background:#FFF4DC;
+  border:1px solid #F3D7A5;
+  text-align:center;
+  font-size:.73rem;
+  line-height:1.55;
+  color:#896F4A
 }
 
+.whatsapp-btn{
+  background:#25D366;
+  color:#fff;
+  box-shadow:0 10px 20px rgba(37,211,102,.20);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px
+}
+
+.whatsapp-btn:hover{
+  filter:brightness(1.04)
+}
+
+.wa-icon{
+  width:18px;
+  height:18px;
+  flex-shrink:0
+}
+
+/* FOOTER */
+
 .benefits{
-display:flex;
-justify-content:center;
-gap:14px;
-margin-top:4px;
-font-size:.68rem;
-color:#A18388
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:4px;
+  font-size:.68rem;
+  color:#A18388
 }
 
 .footer{
-text-align:center;
-padding:5px 0 10px;
-font-size:.66rem;
-line-height:1.6;
-color:#B0969B
+  text-align:center;
+  padding:5px 0 10px;
+  font-size:.66rem;
+  line-height:1.6;
+  color:#B0969B
 }
 
-/* ANIMATION */
+/* ANIMATIONS */
 
 @keyframes floaty{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-7px)}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
 }
 
 @keyframes pulseSoft{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.015)}
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.015)}
 }
 
 @keyframes fadeInUp{
-from{opacity:0;transform:translateY(12px)}
-to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(12px)
+  }
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
 }
 
 @keyframes pageIn{
-from{opacity:0;transform:translateY(7px)}
-to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(7px)
+  }
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
 }
 
 @keyframes spin{
-to{transform:rotate(360deg)}
+  to{transform:rotate(360deg)}
 }
 
 @media(max-height:700px){
-.page{padding-top:16px;padding-bottom:16px}
-.logo{width:150px}
-.order-card,.result{padding-top:22px}
+  .page{
+    padding-top:16px;
+    padding-bottom:16px
+  }
+
+  .logo{
+    width:150px
+  }
+
+  .order-card,
+  .result{
+    padding-top:22px
+  }
 }
 
 @media(max-width:380px){
-.page{padding-left:12px;padding-right:12px}
-.order-card,.result{padding-left:17px;padding-right:17px}
-.title{font-size:1.48rem}
+  .page{
+    padding-left:12px;
+    padding-right:12px
+  }
+
+  .order-card,
+  .result{
+    padding-left:17px;
+    padding-right:17px
+  }
+
+  .title{
+    font-size:1.48rem
+  }
 }
 </style>
 </head>
@@ -647,277 +731,298 @@ to{transform:rotate(360deg)}
 <main class="page">
 <div class="stage">
 
+<!-- LOGO -->
 <div class="logo-wrap">
-<img
-class="logo"
-src="https://drive.google.com/thumbnail?id=1WqeS39kJveRSuLSDBHDVlKtsAaLUiWVR&sz=w800"
-alt="SEMURA">
+  <img
+    class="logo"
+    src="https://drive.google.com/thumbnail?id=1WqeS39kJveRSuLSDBHDVlKtsAaLUiWVR&sz=w800"
+    alt="SEMURA">
 </div>
 
+
+<!-- HOME -->
 <section id="homeScreen" class="screen active">
-<div class="order-card">
 
-<h1 class="title">Cek Pesanan</h1>
+  <div class="order-card">
 
-<p class="subtitle">
-Masukkan Kode Grup dan Nomor WhatsApp
-untuk melihat pesananmu.
-</p>
+    <h1 class="title">Cek Pesanan</h1>
 
-<div class="field">
-<label for="kodeGrup">Kode Grup</label>
+    <p class="subtitle">
+      Masukkan Kode Grup dan Nomor WhatsApp
+      untuk melihat pesananmu.
+    </p>
 
-<input
-type="text"
-id="kodeGrup"
-placeholder="Contoh: G1/G2/G3"
-autocomplete="off">
-</div>
+    <div class="field">
+      <label for="kodeGrup">Kode Grup</label>
+      <input
+        type="text"
+        id="kodeGrup"
+        placeholder="Contoh: G1/G2/G3"
+        autocomplete="off">
+    </div>
 
-<div class="field">
-<label for="nomorWhatsapp">Nomor WhatsApp</label>
+    <div class="field">
+      <label for="nomorWhatsapp">Nomor WhatsApp</label>
+      <input
+        type="tel"
+        id="nomorWhatsapp"
+        placeholder="Contoh: 081234567890"
+        autocomplete="tel">
+    </div>
 
-<input
-type="tel"
-id="nomorWhatsapp"
-placeholder="Contoh: 081234567890"
-autocomplete="tel">
-</div>
+    <button
+      class="btn"
+      id="cekButton"
+      onclick="cekPesanan()">
+      CEK PESANAN
+    </button>
 
-<button
-class="btn"
-id="cekButton"
-onclick="cekPesanan()">
-SUBMIT
-</button>
+    <div class="loading" id="loading">
+      <span class="spinner"></span>
+      <span>Sedang mencari pesanan...</span>
+    </div>
 
-<div class="loading" id="loading">
-<span class="spinner"></span>
-<span>Sedang mencari pesanan...</span>
-</div>
+    <div class="error" id="error"></div>
 
-<div class="error" id="error"></div>
+  </div>
 
-</div>
 </section>
 
+
+<!-- RESULT -->
 <section id="resultScreen" class="screen">
 
-<div class="result">
+  <div class="result">
 
-<div class="result-header">
+    <div class="result-header">
 
-<h2>Pesanan Ditemukan 💗</h2>
+      <h2>Pesanan Ditemukan 💗</h2>
 
-<p id="customerName">-</p>
+      <p id="customerName">-</p>
 
-</div>
+    </div>
 
-<div id="orderList"></div>
 
-<div class="grand-total">
+    <div id="orderList"></div>
 
-<span>Total Pesanan</span>
 
-<span id="grandTotal">Rp0</span>
+    <!-- TOTAL -->
+    <div class="grand-total">
 
-</div>
+      <span>Total Pesanan</span>
 
-<div
-id="paymentStatus"
-class="overall-payment unpaid">
+      <span id="grandTotal">
+        Rp0
+      </span>
 
-<div
-class="payment-status-icon"
-id="paymentIcon">
-⏳
-</div>
+    </div>
 
-<div class="payment-status-content">
 
-<div class="payment-status-title">
-Status Pembayaran
-</div>
+    <!-- OVERALL PAYMENT -->
+    <div
+      id="paymentStatus"
+      class="overall-payment unpaid">
 
-<div
-class="payment-done-text"
-id="paymentText">
-BELUM BAYAR
-</div>
+      <div
+        class="payment-status-icon"
+        id="paymentIcon">
+        ⏳
+      </div>
 
-<div
-class="payment-status-description"
-id="paymentDescription">
-Silakan lakukan pembayaran untuk melanjutkan proses pesanan.
-</div>
+      <div class="payment-status-content">
 
-</div>
-</div>
+        <div class="payment-status-title">
+          Status Pembayaran
+        </div>
 
-<div
-id="instructionWrapper"
-style="margin-top:14px">
+        <div
+          class="payment-done-text"
+          id="paymentText">
+          BELUM BAYAR
+        </div>
 
-<button
-class="btn"
-onclick="showScreen('paymentScreen')">
+        <div
+          class="payment-status-description"
+          id="paymentDescription">
+          Silakan lakukan pembayaran untuk melanjutkan proses pesanan.
+        </div>
 
-💳 LIHAT INSTRUKSI PEMBAYARAN
+      </div>
 
-</button>
+    </div>
 
-</div>
 
-<div style="margin-top:10px">
+    <!-- PAYMENT BUTTON -->
+    <div
+      id="instructionWrapper"
+      style="margin-top:14px">
 
-<button
-class="btn btn-secondary"
-onclick="showScreen('homeScreen')">
+      <button
+        class="btn"
+        onclick="showScreen('paymentScreen')">
+        LIHAT INSTRUKSI PEMBAYARAN
+      </button>
 
-← Kembali ke Beranda
+    </div>
 
-</button>
 
-</div>
+    <!-- BACK -->
+    <div style="margin-top:10px">
 
-</div>
+      <button
+        class="btn btn-secondary"
+        onclick="showScreen('homeScreen')">
+        ← Kembali ke Beranda
+      </button>
+
+    </div>
+
+  </div>
 
 </section>
 
+
+<!-- PAYMENT -->
 <section id="paymentScreen" class="screen">
 
-<div class="result payment-card">
+  <div class="result payment-card">
 
-<h2 class="payment-title">
-Instruksi Pembayaran
-</h2>
+    <h2 class="payment-title">
+      Instruksi Pembayaran
+    </h2>
 
-<p class="payment-subtitle">
-Silakan transfer sesuai total pesanan
-ke rekening berikut.
-</p>
+    <p class="payment-subtitle">
+      Silakan transfer sesuai total pesanan
+      ke rekening berikut.
+    </p>
 
-<div class="payment-total">
 
-<span>
-Total yang harus dibayar
-</span>
+    <!-- TOTAL PEMBAYARAN -->
+    <div class="payment-total">
 
-<div class="payment-total-row">
+      <span>
+        Total yang harus dibayar
+      </span>
 
-<strong id="paymentTotal">
-Rp0
-</strong>
+      <div class="payment-total-row">
 
-<button
-class="copy-total-btn"
-onclick="salinTotal()"
-aria-label="Salin total pembayaran">
+        <strong id="paymentTotal">
+          Rp0
+        </strong>
 
-📋
+        <button
+          class="copy-total-btn"
+          onclick="salinTotal()"
+          aria-label="Salin total pembayaran">
+          📋
+        </button>
 
-</button>
+      </div>
 
-</div>
+    </div>
 
-</div>
 
-<div class="bank-box">
+    <!-- BANK -->
+    <div class="bank-box">
 
-<img
-class="bca-logo"
-src="https://drive.google.com/thumbnail?id=1hW1PAp4hcGlf75o0knAeGvQuCTKSy5Az&sz=w800"
-alt="BCA">
+      <img
+        class="bca-logo"
+        src="https://drive.google.com/thumbnail?id=1hW1PAp4hcGlf75o0knAeGvQuCTKSy5Az&sz=w800"
+        alt="BCA">
 
-<div class="bank-label">
-Nomor Rekening BCA
-</div>
+      <div class="bank-label">
+        Nomor Rekening BCA
+      </div>
 
-<div
-class="bank-number"
-id="rekeningBca">
-0154739978
-</div>
+      <div
+        class="bank-number"
+        id="rekeningBca">
+        0154739978
+      </div>
 
-<div class="bank-owner">
-a.n. Natasya A
-</div>
+      <div class="bank-owner">
+        a.n. Natasya A
+      </div>
 
-<button
-class="copy-btn"
-onclick="salinRekening()">
+      <button
+        class="copy-btn"
+        onclick="salinRekening()">
+        SALIN NOMOR REKENING
+      </button>
 
-SALIN NOMOR REKENING
+    </div>
 
-</button>
 
-</div>
+    <!-- NOTE -->
+    <div class="payment-note">
+      Setelah melakukan transfer, silakan kirim
+      <b>bukti pembayaran</b> melalui WhatsApp Admin
+      SEMURA agar pembayaran dapat segera dicek. 🤍
+    </div>
 
-<div class="payment-note">
 
-Setelah melakukan transfer, silakan kirim
-<b>bukti pembayaran</b> melalui WhatsApp Admin
-SEMURA agar pembayaran dapat segera dicek. 🤍
+    <!-- WHATSAPP -->
+    <div style="margin-top:15px">
 
-</div>
+      <button
+        class="btn whatsapp-btn"
+        onclick="konfirmasiWhatsApp()">
 
-<div style="margin-top:15px">
+        <svg
+          class="wa-icon"
+          viewBox="0 0 32 32"
+          aria-hidden="true">
 
-<button
-class="btn whatsapp-btn"
-onclick="konfirmasiWhatsApp()">
+          <path
+            fill="currentColor"
+            d="M19.11 17.41c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.57.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
 
-<svg
-class="wa-icon"
-viewBox="0 0 32 32"
-aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M16.01 3.2c-7.05 0-12.79 5.73-12.79 12.78 0 2.25.59 4.45 1.72 6.38L3.1 28.8l6.59-1.73a12.73 12.73 0 0 0 6.32 1.67h.01c7.04 0 12.77-5.73 12.77-12.78S23.06 3.2 16.01 3.2zm0 23.38h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.91 1.03 1.04-3.81-.25-.39a10.62 10.62 0 1 1 8.92 4.88z"/>
 
-<path
-fill="currentColor"
-d="M19.11 17.41c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.57.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+        </svg>
 
-<path
-fill="currentColor"
-d="M16.01 3.2c-7.05 0-12.79 5.73-12.79 12.78 0 2.25.59 4.45 1.72 6.38L3.1 28.8l6.59-1.73a12.73 12.73 0 0 0 6.32 1.67h.01c7.04 0 12.77-5.73 12.77-12.78S23.06 3.2 16.01 3.2zm0 23.38h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.91 1.03 1.04-3.81-.25-.39a10.62 10.62 0 1 1 8.92 4.88z"/>
+        KONFIRMASI VIA WHATSAPP
 
-</svg>
+      </button>
 
-KONFIRMASI VIA WHATSAPP
+    </div>
 
-</button>
 
-</div>
+    <!-- BACK -->
+    <div style="margin-top:10px">
 
-<div style="margin-top:10px">
+      <button
+        class="btn btn-secondary"
+        onclick="showScreen('resultScreen')">
+        ← KEMBALI
+      </button>
 
-<button
-class="btn btn-secondary"
-onclick="showScreen('resultScreen')">
+    </div>
 
-← KEMBALI
-
-</button>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+
+<!-- BENEFITS -->
 <div class="benefits">
-<span>🌸 Mudah</span>
-<span>✨ Aman</span>
-<span>💖 Praktis</span>
+  <span>🌸 Mudah</span>
+  <span>✨ Aman</span>
+  <span>💖 Praktis</span>
 </div>
 
+
+<!-- FOOTER -->
 <div class="footer">
-© 2026 SEMURA · Since 2022
-<br>
-Baby & Mom
+  © 2026 SEMURA · Since 2022<br>
+  Baby & Mom
 </div>
 
 </div>
 </main>
+
 
 <script>
 
@@ -925,580 +1030,720 @@ const API_URL =
 "https://script.google.com/macros/s/AKfycbxJEGaU5d7lISyZEcQCwvR-n7mUQK6yZuehFtjgeCObl2Uq_KvDdv2WNIUo1ZoSeLqIjg/exec";
 
 const NO_REKENING_BCA = "0154739978";
+
 const NO_WA_ADMIN = "6282115465899";
 
 let currentWhatsappMessage = "";
 
+
+/* =========================
+   SCREEN
+========================= */
+
 function showScreen(id){
 
-const screens =
-document.querySelectorAll(".screen");
+  document
+    .querySelectorAll(".screen")
+    .forEach(function(s){
+      s.classList.remove("active");
+    });
 
-screens.forEach(function(screen){
-screen.classList.remove("active");
-});
+  const target =
+    document.getElementById(id);
 
-const target =
-document.getElementById(id);
+  if(target){
+    target.classList.add("active");
+  }
 
-if(target){
-target.classList.add("active");
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
 
+/* =========================
+   NORMALISASI NOMOR
+========================= */
+
+function normalisasiNomor(n){
+
+  let v =
+    String(n || "")
+    .trim()
+    .replace(/\D/g,"");
+
+  if(v.indexOf("62") === 0){
+    v = "0" + v.substring(2);
+  }
+
+  return v;
 }
 
-function normalisasiNomor(nomor){
 
-let value =
-String(nomor || "")
-.trim()
-.replace(/\D/g,"");
-
-if(value.indexOf("62") === 0){
-
-value =
-"0" +
-value.substring(2);
-
-}
-
-return value;
-
-}
+/* =========================
+   CEK PESANAN
+========================= */
 
 function cekPesanan(){
 
-const kode =
-document
-.getElementById("kodeGrup")
-.value
-.trim()
-.toLowerCase();
+  const kode =
+    document
+      .getElementById("kodeGrup")
+      .value
+      .trim()
+      .toLowerCase();
 
-const nomor =
-normalisasiNomor(
-document
-.getElementById("nomorWhatsapp")
-.value
-);
+  const nomor =
+    normalisasiNomor(
+      document.getElementById("nomorWhatsapp").value
+    );
 
-const loading =
-document.getElementById("loading");
+  const load =
+    document.getElementById("loading");
 
-const error =
-document.getElementById("error");
+  const err =
+    document.getElementById("error");
 
-const button =
-document.getElementById("cekButton");
+  const btn =
+    document.getElementById("cekButton");
 
-error.classList.remove("show");
 
-if(!kode || !nomor){
+  err.classList.remove("show");
 
-error.textContent =
-"Kode grup dan nomor WhatsApp wajib diisi.";
 
-error.classList.add("show");
+  if(!kode || !nomor){
 
-return;
+    err.textContent =
+      "Kode grup dan nomor WhatsApp wajib diisi.";
 
+    err.classList.add("show");
+
+    return;
+  }
+
+
+  load.classList.add("show");
+
+  btn.disabled = true;
+
+  btn.style.opacity = ".7";
+
+
+  const cb =
+    "semuraCallback_" + Date.now();
+
+  let script = null;
+
+
+  window.semuraKodeGrup = kode;
+
+  window.semuraNomorWhatsapp = nomor;
+
+
+  window[cb] = function(res){
+
+    try{
+
+      prosesHasilPesanan(res);
+
+    }catch(e){
+
+      console.error(e);
+
+      err.textContent =
+        "Data pesanan gagal diproses.";
+
+      err.classList.add("show");
+
+    }finally{
+
+      load.classList.remove("show");
+
+      btn.disabled = false;
+
+      btn.style.opacity = "1";
+
+      delete window[cb];
+
+      if(script && script.parentNode){
+        script.parentNode.removeChild(script);
+      }
+
+    }
+
+  };
+
+
+  script =
+    document.createElement("script");
+
+
+  script.src =
+    API_URL +
+    "?action=cariPesanan" +
+    "&kodeGrup=" +
+    encodeURIComponent(kode) +
+    "&nomorWhatsapp=" +
+    encodeURIComponent(nomor) +
+    "&callback=" +
+    encodeURIComponent(cb);
+
+
+  script.onerror = function(){
+
+    load.classList.remove("show");
+
+    btn.disabled = false;
+
+    btn.style.opacity = "1";
+
+    err.textContent =
+      "Tidak dapat terhubung ke server SEMURA.";
+
+    err.classList.add("show");
+
+    delete window[cb];
+
+    if(script && script.parentNode){
+      script.parentNode.removeChild(script);
+    }
+
+  };
+
+
+  document.body.appendChild(script);
 }
 
-loading.classList.add("show");
 
-button.disabled = true;
-button.style.opacity = ".7";
-
-const callbackName =
-"semuraCallback_" +
-Date.now();
-
-let script = null;
-
-window.semuraKodeGrup = kode;
-window.semuraNomorWhatsapp = nomor;
-
-window[callbackName] =
-function(response){
-
-try{
-
-prosesHasilPesanan(response);
-
-}catch(err){
-
-console.error(
-"SEMURA ERROR:",
-err
-);
-
-error.textContent =
-"Data pesanan gagal diproses.";
-
-error.classList.add("show");
-
-}finally{
-
-loading.classList.remove("show");
-
-button.disabled = false;
-button.style.opacity = "1";
-
-delete window[callbackName];
-
-if(script && script.parentNode){
-script.parentNode.removeChild(script);
-}
-
-}
-
-};
-
-const url =
-API_URL +
-"?action=cariPesanan" +
-"&kodeGrup=" +
-encodeURIComponent(kode) +
-"&nomorWhatsapp=" +
-encodeURIComponent(nomor) +
-"&callback=" +
-encodeURIComponent(callbackName);
-
-script =
-document.createElement("script");
-
-script.src = url;
-
-script.onerror =
-function(){
-
-loading.classList.remove("show");
-
-button.disabled = false;
-button.style.opacity = "1";
-
-error.textContent =
-"Tidak dapat terhubung ke server SEMURA.";
-
-error.classList.add("show");
-
-delete window[callbackName];
-
-if(script && script.parentNode){
-script.parentNode.removeChild(script);
-}
-
-};
-
-document.body.appendChild(script);
-
-}
+/* =========================
+   PROSES HASIL
+========================= */
 
 function prosesHasilPesanan(response){
 
-const error =
-document.getElementById("error");
+  const err =
+    document.getElementById("error");
 
-if(!response || !response.success){
 
-error.textContent =
-response && response.message
-? response.message
-: "Pesanan tidak ditemukan.";
+  if(!response || !response.success){
 
-error.classList.add("show");
+    err.textContent =
+      response && response.message
+      ? response.message
+      : "Pesanan tidak ditemukan.";
 
-return;
+    err.classList.add("show");
+
+    return;
+  }
+
+
+  if(
+    !Array.isArray(response.data) ||
+    !response.data.length
+  ){
+
+    err.textContent =
+      "Data pesanan tidak tersedia.";
+
+    err.classList.add("show");
+
+    return;
+  }
+
+
+  const first =
+    response.data[0];
+
+
+  /* NAMA PEMESAN */
+
+  document.getElementById("customerName").textContent =
+    first.namaPemesan || "-";
+
+
+  const list =
+    document.getElementById("orderList");
+
+  list.innerHTML = "";
+
+
+  let unpaid = false;
+
+  let totalCalculated = 0;
+
+
+  response.data.forEach(function(item){
+
+    const status =
+      String(item.statusPembayaran || "")
+      .trim()
+      .toLowerCase();
+
+
+    const paid =
+      [
+        "done",
+        "lunas",
+        "selesai",
+        "sudah bayar",
+        "sudah dibayar",
+        "done payment"
+      ].includes(status);
+
+
+    if(!paid){
+      unpaid = true;
+    }
+
+
+    /* QTY */
+
+    const qty =
+      Number(
+        String(item.qty || "0")
+        .replace(/[^\d]/g,"")
+      ) || 0;
+
+
+    /* HARGA SATUAN */
+
+    const harga =
+      Number(
+        String(item.harga || "")
+        .replace(/[^\d]/g,"")
+      ) || 0;
+
+
+    /* SUBTOTAL = HARGA x QTY */
+
+    const subtotal =
+      harga * qty;
+
+
+    totalCalculated += subtotal;
+
+
+    const d =
+      document.createElement("div");
+
+
+    d.className =
+      "order-item";
+
+
+    d.innerHTML = `
+
+      <div class="book-title">
+        📖 ${escapeHtml(item.judulBuku || "-")}
+      </div>
+
+      <div class="book-info-row">
+
+        <div class="book-qty">
+          Qty: ${escapeHtml(item.qty || "0")}
+          × ${formatRupiah(harga)}
+        </div>
+
+        <div class="book-subtotal">
+          ${formatRupiah(subtotal)}
+        </div>
+
+      </div>
+
+      <div class="item-divider"></div>
+
+      <div class="item-status-row">
+
+        <span>
+          Status Bayar
+        </span>
+
+        <span class="status-badge payment-badge ${paid ? "done" : "unpaid"}">
+          ${paid ? "DONE PAYMENT" : "BELUM BAYAR"}
+        </span>
+
+      </div>
+
+      <div class="item-status-row">
+
+        <span>
+          Pengiriman
+        </span>
+
+        <span class="status-badge shipping-badge">
+          ${escapeHtml(item.statusPengiriman || "-")}
+        </span>
+
+      </div>
+
+    `;
+
+
+    list.appendChild(d);
+
+  });
+
+
+  /* TOTAL */
+
+  let total = totalCalculated;
+
+
+  if(!total){
+
+    total =
+      Number(response.totalSemua || 0);
+
+  }
+
+
+  document.getElementById("grandTotal").textContent =
+    formatRupiah(total);
+
+
+  /* PAYMENT TOTAL */
+
+  document.getElementById("paymentTotal").textContent =
+    formatRupiah(total);
+
+
+  /* PAYMENT STATUS */
+
+  const ps =
+    document.getElementById("paymentStatus");
+
+  const pi =
+    document.getElementById("paymentIcon");
+
+  const pt =
+    document.getElementById("paymentText");
+
+  const pd =
+    document.getElementById("paymentDescription");
+
+
+  ps.className =
+    "overall-payment " +
+    (unpaid ? "unpaid" : "done");
+
+
+  pi.textContent =
+    unpaid ? "⏳" : "✓";
+
+
+  pt.textContent =
+    unpaid
+    ? "BELUM BAYAR"
+    : "DONE PAYMENT";
+
+
+  pd.textContent =
+    unpaid
+    ? "Silakan lakukan pembayaran untuk melanjutkan proses pesanan."
+    : "Pembayaran sudah diterima. Terima kasih 🤍";
+
+
+  /* PAYMENT BUTTON */
+
+  document.getElementById(
+    "instructionWrapper"
+  ).style.display =
+    unpaid ? "block" : "none";
+
+
+  /* WHATSAPP MESSAGE */
+
+  currentWhatsappMessage =
+    "Halo Admin SEMURA, saya mau konfirmasi pembayaran pesanan:\n\n" +
+
+    "- Nama: " +
+    (first.namaPemesan || "-") +
+
+    "\n- Kode Grup: " +
+    (window.semuraKodeGrup || "") +
+
+    "\n- Nomor WhatsApp: " +
+    (window.semuraNomorWhatsapp || "") +
+
+    "\n- Total: " +
+    formatRupiah(total) +
+
+    "\n- Pembayaran via: Bank BCA\n\n" +
+
+    "Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
+
+
+  showScreen("resultScreen");
+}
+
+
+/* =========================
+   FORMAT RUPIAH
+========================= */
+
+function formatRupiah(n){
+
+  return "Rp" +
+    Number(n || 0)
+    .toLocaleString("id-ID");
 
 }
 
-if(!Array.isArray(response.data) ||
-response.data.length === 0){
 
-error.textContent =
-"Data pesanan tidak tersedia.";
-
-error.classList.add("show");
-
-return;
-
-}
-
-const first =
-response.data[0];
-
-document
-.getElementById("customerName")
-.textContent =
-first.namaPemesan || "-";
-
-const orderList =
-document.getElementById("orderList");
-
-orderList.innerHTML = "";
-
-let adaYangBelumBayar = false;
-let totalDariCard = 0;
-
-response.data.forEach(function(item){
-
-const status =
-String(item.statusPembayaran || "")
-.trim()
-.toLowerCase();
-
-const sudahBayar = [
-"done",
-"lunas",
-"selesai",
-"sudah bayar",
-"sudah dibayar",
-"done payment"
-].includes(status);
-
-if(!sudahBayar){
-adaYangBelumBayar = true;
-}
-
-const qty =
-Number(
-String(item.qty || "0")
-.replace(/[^\d]/g,"")
-) || 0;
-
-const harga =
-Number(
-String(item.harga || "0")
-.replace(/[^\d]/g,"")
-) || 0;
-
-const subtotal =
-qty * harga;
-
-totalDariCard += subtotal;
-
-const div =
-document.createElement("div");
-
-div.className =
-"order-item";
-
-div.innerHTML = `
-
-<div class="book-title">
-📖 ${escapeHtml(item.judulBuku || "-")}
-</div>
-
-<div class="qty-price-row">
-
-<div class="item-meta">
-Qty: ${qty} × ${formatRupiah(harga)}
-</div>
-
-<div class="book-price">
-${formatRupiah(subtotal)}
-</div>
-
-</div>
-
-<div class="item-divider"></div>
-
-<div class="item-status-row">
-
-<span>Status Bayar</span>
-
-<span class="status-badge payment-badge ${
-sudahBayar ? "done" : "unpaid"
-}">
-
-${sudahBayar
-? "DONE PAYMENT"
-: "BELUM BAYAR"}
-
-</span>
-
-</div>
-
-<div class="item-status-row">
-
-<span>Pengiriman</span>
-
-<span class="status-badge shipping-badge">
-
-${escapeHtml(item.statusPengiriman || "-")}
-
-</span>
-
-</div>
-`;
-
-orderList.appendChild(div);
-
-});
-
-let totalSemua =
-totalDariCard;
-
-if(!totalSemua){
-
-totalSemua =
-Number(response.totalSemua || 0);
-
-}
-
-document
-.getElementById("grandTotal")
-.textContent =
-formatRupiah(totalSemua);
-
-document
-.getElementById("paymentTotal")
-.textContent =
-formatRupiah(totalSemua);
-
-const paymentStatus =
-document.getElementById("paymentStatus");
-
-const paymentIcon =
-document.getElementById("paymentIcon");
-
-const paymentText =
-document.getElementById("paymentText");
-
-const paymentDescription =
-document.getElementById("paymentDescription");
-
-if(adaYangBelumBayar){
-
-paymentStatus.className =
-"overall-payment unpaid";
-
-paymentIcon.textContent = "⏳";
-paymentText.textContent = "BELUM BAYAR";
-
-paymentDescription.textContent =
-"Silakan lakukan pembayaran untuk melanjutkan proses pesanan.";
-
-}else{
-
-paymentStatus.className =
-"overall-payment done";
-
-paymentIcon.textContent = "✓";
-paymentText.textContent = "DONE PAYMENT";
-
-paymentDescription.textContent =
-"Pembayaran sudah diterima. Terima kasih 🤍";
-
-}
-
-document
-.getElementById("instructionWrapper")
-.style.display =
-adaYangBelumBayar
-? "block"
-: "none";
-
-currentWhatsappMessage =
-
-"Halo Admin SEMURA, saya mau konfirmasi pembayaran pesanan:\n\n" +
-
-"- Nama: " +
-(first.namaPemesan || "-") +
-"\n" +
-
-"- Kode Grup: " +
-(window.semuraKodeGrup || "") +
-"\n" +
-
-"- Nomor WhatsApp: " +
-(window.semuraNomorWhatsapp || "") +
-"\n" +
-
-"- Total: " +
-formatRupiah(totalSemua) +
-"\n" +
-
-"- Pembayaran via: Bank BCA\n\n" +
-
-"Saya sudah melakukan transfer dan akan mengirimkan bukti pembayaran di chat ini. Mohon dicek ya Kak. Terima kasih! 🤍";
-
-showScreen("resultScreen");
-
-}
-
-function formatRupiah(angka){
-
-return "Rp" +
-Number(angka || 0)
-.toLocaleString("id-ID");
-
-}
+/* =========================
+   COPY REKENING
+========================= */
 
 function salinRekening(){
 
-const btn =
-document.querySelector(".copy-btn");
+  const btn =
+    document.querySelector(".copy-btn");
 
-const berhasil =
-function(){
 
-const teksLama =
-btn.textContent;
+  const berhasil = function(){
 
-btn.textContent =
-"✓ BERHASIL DISALIN";
+    const teksLama =
+      btn.textContent;
 
-btn.classList.add("copied");
 
-setTimeout(function(){
+    btn.textContent =
+      "✓ BERHASIL DISALIN";
 
-btn.textContent =
-teksLama;
 
-btn.classList.remove("copied");
+    btn.classList.add("copied");
 
-},2000);
 
-};
+    setTimeout(function(){
 
-if(navigator.clipboard &&
-navigator.clipboard.writeText){
+      btn.textContent =
+        teksLama;
 
-navigator.clipboard
-.writeText(NO_REKENING_BCA)
-.then(berhasil)
-.catch(function(){
+      btn.classList.remove("copied");
 
-fallbackCopy(
-NO_REKENING_BCA,
-berhasil
-);
+    },2000);
 
-});
+  };
 
-}else{
 
-fallbackCopy(
-NO_REKENING_BCA,
-berhasil
-);
+  if(
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ){
+
+    navigator.clipboard
+      .writeText(NO_REKENING_BCA)
+      .then(berhasil)
+      .catch(function(){
+
+        fallbackCopy(
+          NO_REKENING_BCA,
+          berhasil
+        );
+
+      });
+
+  }else{
+
+    fallbackCopy(
+      NO_REKENING_BCA,
+      berhasil
+    );
+
+  }
 
 }
 
-}
+
+/* =========================
+   COPY TOTAL
+========================= */
 
 function salinTotal(){
 
-const total =
-document
-.getElementById("paymentTotal")
-.textContent;
+  const total =
+    document
+      .getElementById("paymentTotal")
+      .textContent;
 
-const btn =
-document.querySelector(".copy-total-btn");
 
-const berhasil =
-function(){
+  const btn =
+    document.querySelector(".copy-total-btn");
 
-btn.textContent = "✓";
-btn.classList.add("copied");
 
-setTimeout(function(){
+  const berhasil = function(){
 
-btn.textContent = "📋";
-btn.classList.remove("copied");
+    btn.textContent = "✓";
 
-},2000);
+    btn.classList.add("copied");
 
-};
 
-if(navigator.clipboard &&
-navigator.clipboard.writeText){
+    setTimeout(function(){
 
-navigator.clipboard
-.writeText(total)
-.then(berhasil)
-.catch(function(){
+      btn.textContent = "📋";
 
-fallbackCopy(
-total,
-berhasil
-);
+      btn.classList.remove("copied");
 
-});
+    },2000);
 
-}else{
+  };
 
-fallbackCopy(
-total,
-berhasil
-);
+
+  if(
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ){
+
+    navigator.clipboard
+      .writeText(total)
+      .then(berhasil)
+      .catch(function(){
+
+        fallbackCopy(
+          total,
+          berhasil
+        );
+
+      });
+
+  }else{
+
+    fallbackCopy(
+      total,
+      berhasil
+    );
+
+  }
 
 }
 
-}
+
+/* =========================
+   FALLBACK COPY
+========================= */
 
 function fallbackCopy(text,callback){
 
-const temp =
-document.createElement("textarea");
+  const temp =
+    document.createElement("textarea");
 
-temp.value = text;
-temp.style.position = "fixed";
-temp.style.opacity = "0";
 
-document.body.appendChild(temp);
+  temp.value = text;
 
-temp.focus();
-temp.select();
+  temp.style.position = "fixed";
 
-try{
-document.execCommand("copy");
-}catch(e){
-console.error(e);
+  temp.style.opacity = "0";
+
+
+  document.body.appendChild(temp);
+
+  temp.focus();
+
+  temp.select();
+
+
+  try{
+
+    document.execCommand("copy");
+
+  }catch(e){
+
+    console.error(e);
+
+  }
+
+
+  document.body.removeChild(temp);
+
+
+  callback();
+
 }
 
-document.body.removeChild(temp);
 
-callback();
-
-}
+/* =========================
+   WHATSAPP
+========================= */
 
 function konfirmasiWhatsApp(){
 
-const message =
-currentWhatsappMessage ||
-"Halo Admin SEMURA, saya ingin konfirmasi pembayaran.";
+  const message =
+    currentWhatsappMessage ||
+    "Halo Admin SEMURA, saya ingin konfirmasi pembayaran.";
 
-const url =
-"https://wa.me/" +
-NO_WA_ADMIN +
-"?text=" +
-encodeURIComponent(message);
 
-window.open(
-url,
-"_blank"
-);
+  const url =
+    "https://wa.me/" +
+    NO_WA_ADMIN +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(v){
+
+  return String(v || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
-function escapeHtml(value){
 
-return String(value || "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+/* =========================
+   ENTER KEY
+========================= */
 
-}
+document
+  .getElementById("kodeGrup")
+  .addEventListener(
+    "keydown",
+    function(e){
+
+      if(e.key === "Enter"){
+
+        e.preventDefault();
+
+        document
+          .getElementById("nomorWhatsapp")
+          .focus();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById("nomorWhatsapp")
+  .addEventListener(
+    "keydown",
+    function(e){
+
+      if(e.key === "Enter"){
+
+        e.preventDefault();
+
+        cekPesanan();
+
+      }
+
+    }
+  );
 
 </script>
 
