@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -454,30 +455,70 @@ button{
 
 /* =========================================================
    ALAMAT PENGIRIMAN
+   Tambahan fitur — gaya mengikuti desain SEMURA
 ========================================================= */
 
-.shipping-address-box{
+.shipping-address{
   margin:0 0 14px;
-  padding:13px 15px;
-  border-radius:15px;
-  background:#FFF8F8;
-  border:1px solid #F0E0E3;
-  color:#8E777C
+
+  padding:13px 14px;
+
+  border-radius:14px;
+
+  background:#FFF8F9;
+
+  border:1px solid #EEDADD;
+
+  text-align:left
 }
 
-.shipping-address-title{
-  font-family:"Fredoka",sans-serif;
-  font-size:.88rem;
-  font-weight:500;
-  color:#A66D78;
-  margin-bottom:6px
+.shipping-address-label{
+  margin-bottom:5px;
+
+  font-size:.7rem;
+
+  font-weight:700;
+
+  color:#A18388
 }
 
-.shipping-address-text{
-  font-size:.75rem;
-  line-height:1.6;
-  overflow-wrap:anywhere;
-  white-space:pre-wrap
+.shipping-address-value{
+  width:100%;
+  min-height:88px;
+  padding:11px 12px;
+  border:1px solid #E7D4D7;
+  border-radius:11px;
+  outline:none;
+  resize:vertical;
+  background:#FFFDFC;
+  color:#6F5B5F;
+  font-family:inherit;
+  font-size:.76rem;
+  line-height:1.55;
+  transition:.2s
+}
+
+.shipping-address-value::placeholder{
+  color:#BCA8AC
+}
+
+.shipping-address-value:focus{
+  border-color:#C98A97;
+  box-shadow:0 0 0 4px rgba(201,138,151,.1)
+}
+
+.shipping-address-save{
+  margin-top:9px;
+  height:42px;
+  font-size:.76rem
+}
+
+.shipping-address-message{
+  min-height:16px;
+  margin-top:7px;
+  font-size:.68rem;
+  line-height:1.4;
+  color:#A18388
 }
 
 
@@ -594,8 +635,7 @@ button{
   background:#F8F3F4;
   color:#806A70
 }
-
-
+  
 /* =========================================================
    GRAND TOTAL HALAMAN 2
 ========================================================= */
@@ -858,7 +898,7 @@ button{
 
   text-align:center
 }
-
+  
 .bca-logo{
   width:120px;
 
@@ -1243,24 +1283,37 @@ Pesanan Ditemukan 💗
 </div>
 
 
-<div id="orderList"></div>
+<!-- ALAMAT PENGIRIMAN: FITUR BARU, TANPA MENGUBAH DESAIN LAMA -->
 
+<div class="shipping-address">
 
-<!-- ALAMAT PENGIRIMAN -->
-
-<div class="shipping-address-box">
-
-  <div class="shipping-address-title">
-    📍 Alamat Pengiriman
+  <div class="shipping-address-label">
+    Alamat Pengiriman
   </div>
+
+  <textarea
+    class="shipping-address-value"
+    id="shippingAddressValue"
+    rows="3"
+    maxlength="1000"
+    placeholder="Masukkan alamat lengkap, nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan, kota, kode pos..."></textarea>
+
+  <button
+    type="button"
+    class="btn shipping-address-save"
+    id="saveAddressButton"
+    onclick="simpanAlamatPengiriman()">
+    SIMPAN ALAMAT
+  </button>
 
   <div
-    class="shipping-address-text"
-    id="shippingAddress">
-    Belum diisi
-  </div>
+    class="shipping-address-message"
+    id="shippingAddressMessage"></div>
 
 </div>
+
+
+<div id="orderList"></div>
 
 
 <!-- TOTAL HALAMAN 2 -->
@@ -1572,6 +1625,7 @@ Baby & Mom
 
 <script>
 
+
 /* =========================================================
    CONFIG
 ========================================================= */
@@ -1745,6 +1799,7 @@ function cekPesanan(){
 
       }
 
+    
       finally{
 
         load.classList.remove("show");
@@ -1876,22 +1931,22 @@ function prosesHasilPesanan(response){
     first.namaPemesan || "-";
 
 
+  // Isi form dengan alamat yang tersimpan di kolom K.
+  document.getElementById(
+    "shippingAddressValue"
+  ).value =
+    response.alamatPengiriman || first.alamatPengiriman || "";
+
+  document.getElementById(
+    "shippingAddressMessage"
+  ).textContent = "";
+
+
   const list =
     document.getElementById("orderList");
 
 
   list.innerHTML = "";
-
-
-  /* ALAMAT PENGIRIMAN */
-  const addressItem = response.data.find(function(item){
-    return String(item.alamatPengiriman || "").trim() !== "";
-  });
-
-  document.getElementById("shippingAddress").textContent =
-    addressItem
-      ? addressItem.alamatPengiriman
-      : "Belum diisi";
 
 
   let unpaid = false;
@@ -2269,6 +2324,103 @@ function prosesHasilPesanan(response){
 }
 
 
+
+
+/* =========================================================
+   SIMPAN ALAMAT PENGIRIMAN
+========================================================= */
+
+function simpanAlamatPengiriman(){
+
+  const alamat =
+    document.getElementById("shippingAddressValue").value.trim();
+
+  const message =
+    document.getElementById("shippingAddressMessage");
+
+  const button =
+    document.getElementById("saveAddressButton");
+
+  const kode =
+    window.semuraKodeGrup || "";
+
+  const nomor =
+    window.semuraNomorWhatsapp || "";
+
+  if(!kode || !nomor){
+    message.textContent = "Silakan cari pesanan terlebih dahulu.";
+    return;
+  }
+
+  if(!alamat){
+    message.textContent = "Alamat pengiriman wajib diisi.";
+    return;
+  }
+
+  if(alamat.length > 1000){
+    message.textContent = "Alamat maksimal 1.000 karakter.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "MENYIMPAN...";
+  message.textContent = "Sedang menyimpan alamat...";
+
+  const callbackName = "semuraSaveAddress_" + Date.now();
+  let script = null;
+  let selesai = false;
+
+  function resetTombol(){
+    button.disabled = false;
+    button.textContent = "SIMPAN ALAMAT";
+  }
+
+  window[callbackName] = function(response){
+    selesai = true;
+
+    try{
+      if(response && response.success){
+        message.textContent = "✓ Alamat pengiriman berhasil disimpan.";
+      }else{
+        message.textContent = response && response.message
+          ? response.message
+          : "Alamat gagal disimpan. Silakan coba lagi.";
+      }
+    }catch(error){
+      message.textContent = "Alamat gagal disimpan. Silakan coba lagi.";
+    }
+
+    resetTombol();
+    delete window[callbackName];
+
+    if(script && script.parentNode){
+      script.parentNode.removeChild(script);
+    }
+  };
+
+  script = document.createElement("script");
+  script.src =
+    API_URL +
+    "?action=simpanAlamat" +
+    "&kodeGrup=" + encodeURIComponent(kode) +
+    "&nomorWhatsapp=" + encodeURIComponent(nomor) +
+    "&alamatPengiriman=" + encodeURIComponent(alamat) +
+    "&callback=" + encodeURIComponent(callbackName);
+
+  script.onerror = function(){
+    if(selesai) return;
+    message.textContent = "Tidak dapat terhubung ke server. Coba simpan kembali.";
+    resetTombol();
+    delete window[callbackName];
+    if(script && script.parentNode){
+      script.parentNode.removeChild(script);
+    }
+  };
+
+  document.body.appendChild(script);
+}
+
+
 /* =========================================================
    FORMAT RUPIAH
 ========================================================= */
@@ -2487,5 +2639,5 @@ document
 </script>
 
 </body>
-
 </html>
+
