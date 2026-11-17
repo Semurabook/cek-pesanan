@@ -453,6 +453,35 @@ button{
 
 
 /* =========================================================
+   ALAMAT PENGIRIMAN
+========================================================= */
+
+.shipping-address-box{
+  margin:0 0 14px;
+  padding:13px 15px;
+  border-radius:15px;
+  background:#FFF8F8;
+  border:1px solid #F0E0E3;
+  color:#8E777C
+}
+
+.shipping-address-title{
+  font-family:"Fredoka",sans-serif;
+  font-size:.88rem;
+  font-weight:500;
+  color:#A66D78;
+  margin-bottom:6px
+}
+
+.shipping-address-text{
+  font-size:.75rem;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+  white-space:pre-wrap
+}
+
+
+/* =========================================================
    ORDER ITEM
 ========================================================= */
 
@@ -1217,6 +1246,23 @@ Pesanan Ditemukan 💗
 <div id="orderList"></div>
 
 
+<!-- ALAMAT PENGIRIMAN -->
+
+<div class="shipping-address-box">
+
+  <div class="shipping-address-title">
+    📍 Alamat Pengiriman
+  </div>
+
+  <div
+    class="shipping-address-text"
+    id="shippingAddress">
+    Belum diisi
+  </div>
+
+</div>
+
+
 <!-- TOTAL HALAMAN 2 -->
 
 <div class="grand-total">
@@ -1835,6 +1881,17 @@ function prosesHasilPesanan(response){
 
 
   list.innerHTML = "";
+
+
+  /* ALAMAT PENGIRIMAN */
+  const addressItem = response.data.find(function(item){
+    return String(item.alamatPengiriman || "").trim() !== "";
+  });
+
+  document.getElementById("shippingAddress").textContent =
+    addressItem
+      ? addressItem.alamatPengiriman
+      : "Belum diisi";
 
 
   let unpaid = false;
