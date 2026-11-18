@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#FFF9F2">
+<meta name="theme-color" content="#B97886">
 <title>SEMURA - Cek Pesanan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -702,113 +702,6 @@ button{
     font-size:1.48rem
   }
 }
-
-/* =========================================================
-   SEMURA WATERCOLOR STORYBOOK THEME
-   Visual-only overrides; all existing app behavior is kept.
-========================================================= */
-:root{
-  --ivory:#FFF9F2;
-  --paper:#FFFEFA;
-  --pink:#E9B6AC;
-  --pink-soft:#F8E8E3;
-  --sage:#A4AD8B;
-  --sage-soft:#EEF1E7;
-  --blue:#9EB6CC;
-  --blue-soft:#EDF3F8;
-  --brown:#73574B;
-  --brown-soft:#967B6D;
-  --line:#E9DED3;
-}
-body{
-  color:var(--brown);
-  background:
-    radial-gradient(circle at 8% 8%,rgba(233,182,172,.28),transparent 30%),
-    radial-gradient(circle at 92% 18%,rgba(158,182,204,.22),transparent 32%),
-    radial-gradient(circle at 50% 100%,rgba(164,173,139,.16),transparent 38%),
-    linear-gradient(180deg,#FFFDF9 0%,var(--ivory) 100%);
-  background-attachment:fixed;
-}
-.logo-wrap{padding:0 4px 4px}
-.logo{
-  width: min(310px,82%);
-  max-width:82%;
-  filter:drop-shadow(0 9px 18px rgba(115,87,75,.10));
-}
-.order-card,.result{
-  background:rgba(255,254,250,.96);
-  border:1px solid rgba(164,173,139,.34);
-  border-radius:24px;
-  box-shadow:0 16px 42px rgba(115,87,75,.08),0 4px 14px rgba(164,173,139,.08);
-}
-.order-card:before,.result:before{
-  background:linear-gradient(90deg,transparent,var(--pink),var(--sage),var(--blue),transparent);
-}
-.title,.result-header h2,.payment-title,.book-title,.bank-number,.payment-total-value{
-  color:var(--brown);
-}
-.subtitle,.result-header p,.loading,.shipping-address-message,.footer,.benefits{
-  color:var(--brown-soft);
-}
-.field label,.shipping-address-label,.shipping-origin-title,.bank-label{
-  color:#8B7162;
-}
-.field input,.shipping-address-value{
-  border:1px solid #E6DCD1;
-  background:#FFFEFC;
-  color:var(--brown);
-}
-.field input::placeholder,.shipping-address-value::placeholder{color:#B9A89C}
-.field input:focus,.shipping-address-value:focus{
-  border-color:var(--sage);
-  box-shadow:0 0 0 4px rgba(164,173,139,.16);
-}
-.btn{
-  color:#fff;
-  background:linear-gradient(135deg,#B98779,#A9796D);
-  box-shadow:0 9px 19px rgba(115,87,75,.16);
-}
-.btn-secondary{
-  color:#718064;
-  background:var(--sage-soft);
-  border:1px solid #D7DECB;
-  box-shadow:none;
-}
-.error{background:#FFF1EE;border-color:#F0D0C8;color:#A65F53}
-.shipping-address,.bank-box{
-  background:#F8F7F0;
-  border-color:#E4E4D7;
-}
-.shipping-address-value{background:#FFFEFC}
-.shipping-origin{border-top-color:#E6E5D9}
-.shipping-origin-option{color:#806B5D}
-.shipping-origin-option input{accent-color:var(--sage)}
-.order-item{
-  background:#FFFEFC;
-  border-color:#E9E2D8;
-  box-shadow:0 6px 16px rgba(115,87,75,.045);
-}
-.book-price,.total-value{color:#A9796D}
-.item-divider{background:#ECE6DC}
-.shipping-badge{background:var(--blue-soft);color:#647E94}
-.grand-total,.payment-total-box{
-  background:var(--pink-soft);
-  border-color:#EED7D0;
-}
-.overall-payment.unpaid{background:#FFF5E5;border-color:#EEDDBD}
-.overall-payment.done{background:var(--sage-soft);border-color:#D6DFC9}
-.unpaid .payment-status-icon{background:#F8E3B9}
-.done .payment-status-icon{background:#DCE8D4;color:#56734F}
-.payment-done-text{color:var(--brown)}
-.done .payment-done-text{color:#56734F}
-.unpaid .payment-done-text{color:#A97837}
-.payment-note{background:#F7F1E5;border-color:#E8DCC4;color:#806B4D}
-.copy-btn{border-color:#E4D8CC;background:#FFFEFC;color:#8E6D60}
-.copy-total-btn{color:#8E6D60}
-.whatsapp-btn{background:#25D366;box-shadow:0 10px 20px rgba(37,211,102,.18)}
-.benefits{gap:16px}
-@media(max-width:380px){.logo{width:min(280px,84%);max-width:84%}}
-
 </style>
 </head>
 <body>
@@ -821,8 +714,8 @@ body{
 <div class="logo-wrap">
 <img
   class="logo"
-  src="https://drive.google.com/thumbnail?id=1Mrn0pqlQkZybQ1FC-TO5kwXt4XKAjd5g&sz=w1000"
-  alt="SEMURA — Where learning becomes a bond">
+  src="https://drive.google.com/thumbnail?id=1WqeS39kJveRSuLSDBHDVlKtsAaLUiWVR&sz=w800"
+  alt="SEMURA">
 </div>
 <section
   id="homeScreen"
@@ -997,7 +890,8 @@ Rp0
 </span>
 <button
   type="button"
-  class="copy-total-btn"  id="copyTotalBtn"
+  class="copy-total-btn"
+  id="copyTotalBtn"
   onclick="salinTotal()">
 📋
 </button>
@@ -1778,14 +1672,6 @@ document
       }
     }
   );
-  
-  // Hubungkan fungsi agar bisa dipanggil oleh tombol HTML
-window.cekPesanan = cekPesanan;
-window.simpanAlamatPengiriman = simpanAlamatPengiriman;
-window.showScreen = showScreen;
-window.salinTotal = salinTotal;
-window.salinRekening = salinRekening;
-window.konfirmasiWhatsApp = konfirmasiWhatsApp;
 
 </script>
 </body>
